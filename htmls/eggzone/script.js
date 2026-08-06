@@ -487,7 +487,7 @@ function updateMovement() {
 
                             if (posY == 1200) {
                                 location.reload();
-                                location.href = "../../main.html";
+                                location.href = "../../index.html";
                             }
                         }
                     } else {

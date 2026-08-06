@@ -397,7 +397,7 @@ $(function () {
 
 function goBack() {
     location.reload();
-    location.href = "../../main.html";
+    location.href = "../../index.html";
 }
 
 function download() {
