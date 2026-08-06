@@ -1,0 +1,32 @@
+@font-face {
+    font-family: '8Bit_Operator';
+    src: url(fonts/8bitOperatorPlus-Bold.ttf)
+}
+
+* {
+    font-family: "8Bit_Operator";
+    color: white;
+}
+
+body {
+    background-image: url(vid/dr_background_gifVer.gif);
+}
+
+#header {
+    background-color: blueviolet;
+    padding: 10px;
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+}
+
+video {
+    position: relative;
+}
+
+#main {
+    background-color: gray;
+    margin: 3%;
+}

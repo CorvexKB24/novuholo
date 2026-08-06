@@ -1,0 +1,146 @@
+@font-face {
+    font-family: '8Bit_Operator';
+    src: url(../../fonts/undertale-deltarune-extended-fixed.otf)
+}
+
+* {
+    font-family: "8Bit_Operator";
+    margin: 0;
+    user-select: none;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: black;
+}
+
+#eggzone {
+    display: block;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+}
+
+#scene {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1920px;
+    height: 1080px;
+
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform-origin: center center;
+}
+
+#char_novu {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+
+    height: 200px;
+
+    z-index: 100;
+}
+
+#tree {
+    display: none;
+
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+
+    left: 1015px;
+    top: 350px;
+
+    z-index: 99;
+}
+
+#dialoguetext {
+    text-align: center;
+    color: white;
+
+    display: none;
+
+    position: absolute;
+    width: 1800px;
+    height: 100px;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    line-height: 80px;
+    user-select: none;
+}
+
+#text_speak {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 50px;
+
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+        1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+
+    #asterisk {
+        width: 80px;
+        text-align: center;
+        vertical-align: top;
+    }
+}
+
+#text_speak td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#dialoguetext_b {
+    /* border: 1px red solid; */
+    text-align: top;
+
+    display: none;
+
+    position: absolute;
+    width: 1184px;
+    height: 288px;
+    top: 67%;
+    left: 48.5%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+    line-height: 80px;
+    user-select: none;
+
+    p {
+        font-size: 50px;
+        margin: 0px;
+        padding: 10px;
+    }
+}
+
+#text_speak_b {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 53px;
+    color: white;
+    text-shadow: 1px 1px #0f0f71;
+
+    #asterisk {
+        width: 80px;
+        text-align: center;
+        vertical-align: top;
+    }
+}
+
+#text_speak_b td {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#dialoguebox_b {
+    display: none;
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translateX(-50%);
+}

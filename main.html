@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>??????</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="img/novu_icon.png">
+</head>
+
+<body>
+    <div id="enter_menu">
+        <h1 class="clickable" id="enter_btn">&gt ENTER &lt</h1>
+        <p><span id="en_option" class="clickable selected" onclick="changeLanguage(1)">ENGLISH</span><br><span
+                id="es_option" class="clickable" onclick="changeLanguage(2)">SPANISH</span></p>
+        <div id="IMAGE_FRIEND" class="clickable" onclick="showFriend()">
+            <img src="img/IMAGE_FRIEND_0.png">
+        </div>
+    </div>
+
+    <div id="shop">
+        <div id="scene">
+            <div id="guide">
+                <div class="info" id="guidebg">
+                    <br>
+                    <p class="title" id="guide_title1">How to Interact:</p>
+                    <p>[<span id="guide_up">UP</span>] / [<span id="guide_down">DOWN</span>] | [W] / [S]</p>
+                    <p id="guide_desc1">Move the HEART through the options menu</p>
+                    <p class="sidenote" id="guide_side1">* You can use your mouse to navigate</p>
+                    <br>
+                    <p>[Z] / [<span id="guide_space1">SPACE</span>] / [ENTER]</p>
+                    <p id="guide_desc2">Interact with selected option / Next dialogue</p>
+                    <p class="sidenote" id="guide_side2">* Clicking with your mouse also works / There are some
+                        scenes that autoplay</p>
+                    <br>
+                    <p class="title" id="guide_title2">Pictures:</p>
+                    <p>[<span id="guide_left">LEFT</span>] / [<span id="guide_right">RIGHT</span>] | [A] / [D]</p>
+                    <p id="guide_desc3">Move between the different pictures</p>
+                    <p class="sidenote" id="guide_side3">* Click on a picture to zoom, click again to close it</p>
+                    <br>
+                    <p>[<span id="guide_space2">SPACE</span>]</p>
+                    <p id="guide_desc4">Leave the picture showcase mode</p>
+                    <br>
+                    <p class="title" id="guide_title3">Others:</p>
+                    <p id="guide_desc5">Press [G] to open/close guide</p>
+                    <p class="sidenote" id="guide_side4">* Or click the ? icon (top left)</p>
+                    <br>
+                    <p id="guide_desc6">Press [M] to mute/unmute music</p>
+                    <p class="sidenote" id="guide_side5">* Or click the music icon (top left)</p>
+                    <br>
+                    <p id="guide_desc8">Press [I] to open/close info</p>
+                    <p class="sidenote" id="guide_side6">* Or click the information icon (top left)</p>
+                    <br>
+                    <p class="clickable" onclick="openGuide()">[<span id="guide_click">CLICKING THIS TEXT</span>]
+                    </p>
+                    <p id="guide_desc7">Close the guide window (she will suffer)</p>
+                    <br>
+                </div>
+                <img id="novuGuide" class="clickable" src="img/shop/novu_guides.png" onclick="novuGuideClicked()">
+                <p id="psychopath">You're a terrible person.</p>
+            </div>
+
+            <div id="information">
+                <div class="info">
+                    <br>
+                    <p class="title" id="info_title1">Social Media:</p>
+                    <p><span class="translatable" id="info_line1">My Twitter/X art account:</span> <a
+                            href="https://x.com/NovuHolo" class="clickable">@NovuHolo</a></p>
+                    <br>
+                    <p><span class="translatable" id="info_line2">My Twitter/X dubbing account:</span> <a
+                            href="https://x.com/https://x.com/Novunuvol" class="clickable">@Novunuvol</a></p>
+                    <br>
+                    <p><span class="translatable" id="info_line3">My Instagram account:</span> <a
+                            href="https://www.instagram.com/novu_holo/" class="clickable">@novu_holo</a></p>
+                    <br>
+                    <p><span class="translatable" id="info_line4">My Discord account:</span> <a
+                            href="https://discord.com/users/435129718468116503" class="clickable">@novuholo</a></p>
+
+                    <br>
+                    <br>
+
+                    <p class="title" id="info_title2">About this website:</p>
+                    <p><span class="translatable" id="info_line5">This website was built by</span> <a
+                            href="https://x.com/corvexkb24" class="clickable">@corvexkb24</a> <br> <span
+                            class="translatable" id="info_line6">(HTML, CSS, JavaScript and Jquery)</span></p>
+                    <br>
+                    <p><span class="translatable" id="info_line7">Art made by</span> <a href="https://x.com/NovuHolo"
+                            class="clickable">@NovuHolo</a></p>
+                    <br>
+                    <p><span class="translatable" id="info_line8">Music made by</span> <a href="https://x.com/NovuHolo"
+                            class="clickable">@NovuHolo</a></p>
+                </div>
+                <img id="novu_sprite" class="clickable" src="img/shop/novu_sprite.png" onclick="dancing()">
+            </div>
+
+            <img id="shopkeeper" src="img/shop/novu_looking_window.gif" draggable="false">
+            <img id="dialoguebox" src="img/shop/db_shop.png" draggable="false">
+            <img id="dialoguebox_b" src="img/shop/db_shop_b.png" draggable="false">
+
+            <div id="art">
+                <img id="art_displayed" src="img/art/novu_art (1).png" draggable="false">
+            </div>
+
+            <div id="art_zoom_overlay">
+                <img id="art_zoom_img" src="" draggable="false">
+            </div>
+
+            <div class="easteregg clickable" id="runadelta" onclick="easterEgg(1)">
+            </div>
+
+            <div class="easteregg clickable" id="ticket" onclick="easterEgg(2)">
+            </div>
+
+            <div class="easteregg clickable" id="corbatas" onclick="easterEgg(3)">
+            </div>
+
+            <div class="easteregg clickable" id="lancer" onclick="easterEgg(4)">
+            </div>
+
+            <div class="easteregg clickable" id="corvex" onclick="easterEgg(5)">
+            </div>
+
+            <div class="easteregg clickable" id="tupilan" onclick="easterEgg(6)">
+            </div>
+
+            <div class="easteregg clickable" id="sunhoster" onclick="easterEgg(7)">
+            </div>
+
+            <div class="easteregg clickable" id="huevo" onclick="easterEgg(8)">
+            </div>
+
+            <div class="easteregg clickable" id="riel" onclick="easterEgg(9)">
+            </div>
+
+            <div class="easteregg clickable" id="lopizllo" onclick="easterEgg(10)">
+            </div>
+
+            <div class="easteregg clickable" id="pañuelos" onclick="easterEgg(11)">
+            </div>
+
+            <div class="easteregg clickable" id="noname" onclick="easterEgg(12)">
+            </div>
+
+            <div class="clickable" id="guide_btn" onclick="openGuide()">
+                <p id="guide_icon">?</p>
+            </div>
+
+            <div id="music_btn">
+                <img class="clickable" id="music_icon" onclick="changeMusic()" src="img/shop/music_true.png"
+                    draggable="false">
+            </div>
+
+            <div class="clickable" id="info_btn" onclick="openInfo()">
+                <p id="info_icon">i</p>
+            </div>
+
+            <div class="clickable" id="lang_btn" onclick="checkAndChangeLanguage()">
+                <p id="lang_icon">ENG</p>
+            </div>
+
+            <div id="options">
+                <table>
+                    <tr>
+                        <td id="heart0" class="heart_container selected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="aboutme" class="clickable" onmouseover="changeSelection(0)" onclick="AboutMe()">
+                            <span>I</span>About Me
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart1" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="talk" class="clickable" onmouseover="changeSelection(1)" onclick="checkTalkMenu()">
+                            <span>I</span>Talk
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart2" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="myart" class="clickable" onmouseover="changeSelection(2)" onclick="MyArt()">
+                            <span>I</span>My Art
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart3" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="comms" class="clickable" onmouseover="changeSelection(3)" onclick="Comms()">
+                            <span>I</span>Comms
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart4" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="deltaesp" class="clickable" onmouseover="changeSelection(4)" onclick="DeltaESP()">
+                            <span>I</span>DeltaESP
+                        </td>
+                    </tr>
+                </table>
+
+                <p id="money">$2912</p>
+            </div>
+
+            <div id="dialoguetext">
+                <table id="text_speak">
+                    <tr>
+                        <td id="asterisk">*</td>
+                        <td id="dialogue"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="dialogue_talkmenu">
+                <table id="text_speak">
+                    <tr>
+                        <td id="talkcomment">* No estoy aquí de verdad, ¿lo sabes, no?</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="dialoguetext_b">
+                <table id="text_speak_b">
+                    <tr>
+                        <td id="asterisk">*</td>
+                        <td id="dialogue_b"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="options_talking">
+                <table>
+                    <tr>
+                        <td id="heart5" class="heart_container selected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="dubbing" class="clickable" onmouseover="changeSelection(5)"
+                            onclick="talkConversation(6, 1);">
+                            <span>I</span>Dubbing
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart6" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="music" class="clickable" onmouseover="changeSelection(6)"
+                            onclick="talkConversation(7, 1);">
+                            <span>I</span>Music
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart7" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="contact" class="clickable" onmouseover="changeSelection(7)"
+                            onclick="talkConversation(8, 1);">
+                            <span>I</span>Contact
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart8" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="buy" class="clickable" onmouseover="changeSelection(8)"
+                            onclick="talkConversation(9, 1)">
+                            <span>I</span>Buy
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart9" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="window" class="clickable" onmouseover="changeSelection(9)"
+                            onclick="talkConversation(10, 1)">
+                            <span>I</span>Window
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td id="heart10" class="heart_container notSelected"><img class="heart_icon"
+                                src="img/heart_icon.png" draggable="false"></td>
+                        <td id="exit" class="clickable" onmouseover="changeSelection(10)" onclick="triggerShopMenu()">
+                            <span>I</span>Exit
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+</body>
+
+</html>

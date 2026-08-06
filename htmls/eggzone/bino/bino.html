@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>. . .</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="../../img/novu_icon.png">
+</head>
+
+<body>
+
+  <div id="scene">
+    <div class="stage-inner">
+      <svg class="mask-svg" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+        <mask id="binoc-mask">
+          <rect x="0" y="0" width="100%" height="100%" fill="white" />
+          <g id="mask-group">
+            <circle cx="0" cy="0" r="170" fill="black" />
+            <circle cx="300" cy="0" r="170" fill="black" />
+          </g>
+        </mask>
+        <rect class="overlay" x="0" y="0" width="1920" height="1080" mask="url(#binoc-mask)" />
+      </svg>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
