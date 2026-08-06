@@ -10,6 +10,41 @@ const lang = {
     2: "es"
 };
 
+const IMAGE_PATHS = [
+    "img/1225.png",
+    "img/1234.png",
+    "img/1303.png",
+    "img/2202.png",
+    "img/2406.png",
+    "img/2912.png",
+    "img/5267.png",
+    "img/6453.png",
+    "img/6666.png",
+    "img/6767.png",
+    "img/6996.png",
+    "img/9999.png",
+    "img/default.png",
+    "img/wrong.png",
+    "img/goodbye.png"
+];
+
+const preloadedImages = {};
+
+function preloadImages(paths, onDone) {
+    let loaded = 0;
+    paths.forEach(path => {
+        const img = new Image();
+        img.onload = () => {
+            preloadedImages[path] = img;
+            loaded++;
+            if (loaded === paths.length) onDone();
+        };
+        img.src = path;
+    });
+}
+
+preloadImages(IMAGE_PATHS, () => { })
+
 function getLangFromURL() {
     const params = new URLSearchParams(window.location.search);
     const langParam = parseInt(params.get("lang"), 10);
@@ -237,8 +272,8 @@ const dialogues = {
     }
 }
 
+const scene = document.getElementById("scene");
 function resizeScene() {
-    const scene = document.getElementById("scene");
     const scale = Math.min(
         window.innerWidth / DESIGN_WIDTH,
         window.innerHeight / DESIGN_HEIGHT
@@ -333,42 +368,55 @@ $(function () {
                 if (introducedcode == correctCode) {
                     id_convo = 2;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == dessCode) {
                     id_convo = 3;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == novexCode) {
                     id_convo = 4;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == vexCode) {
                     id_convo = 5;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == mikeCode) {
                     id_convo = 6;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == funnyCode) {
                     id_convo = 7;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == notfunnyCode) {
                     id_convo = 8;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == favCode) {
                     id_convo = 9;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == dumbCode) {
                     id_convo = 10;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == koroCode) {
                     id_convo = 11;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == importantCode) {
                     id_convo = 12;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else if (introducedcode == diabloCode) {
                     id_convo = 13;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                 } else {
                     id_convo = 1;
                     id_dialogue = 1;
+                    scene.style.backgroundImage = "url('img/wrong.png')";
                 }
 
                 inConversation = true;
@@ -382,6 +430,8 @@ $(function () {
                         textTyping(dialogue, currentDialogueSet[id_dialogue], "text");
                     } else {
                         dialogue.style.display = "none"
+                        scene.style.backgroundImage = "url('img/goodbye.png')";
+
                         snd_txtnon.play();
 
                         if (id_convo == 2) {
