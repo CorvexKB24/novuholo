@@ -179,30 +179,58 @@ const dialogues = {
     2: {
         en: {
             1: "(Well, there is a man here.)",
-            2: "(He offered you something.)",
-            3: "(You received an Eg-)",
-            4: "(No, wait. It seems he's out of eggs...)",
-            5: "(The man smiles and, instead, hands you a sort of coupon.)",
-            6: "(He points to his empty palm. Then he points to you and...)",
-            7: "((...to the coupon that, without realizing it, you've been holding since you entered.)",
-            8: "(\"42701539\")",
-            9: "(The man smiled.)",
-            10: "(You have a strange feeling that this coupon might come in handy...)",
-            11: "(Well, there is not a man here.)"
+            2: "(He looks at you with a kind smile and gently waves at you.)",
+            3: "(It seems like you know him from somewhere.)",
+            4: "(Despite your efforts to focus on his face, you can't make out its features.)",
+            5: "(However, the way he holds your hand... It's enough to recognize him.)",
+            6: "(The man smiles. Then, he raises his arm toward a direction.)",
+            7: "(The man points beyond your field of vision.)",
+            8: "(When you turn around, you realize. You can see everything.)",
+            9: "(It's as if time itself had taken shape.)",
+            10: "(You gently shake your head, and as your eyes clear, it has disappeared.)",
+            11: "(You turn your gaze back to the man, your head lowered.)",
+            12: "(The man places his hand on your head, and with a gentle touch, eases your troubles.)",
+            13: "(You ponder. It seems you've grown a lot.)",
+            14: "(When you finally raise your head, you can make out the man's face.)",
+            15: "(But you decide to keep it to yourself.)",
+            16: "(The Man offers you something.)",
+            17: "(You have received an Egg.)",
+            18: "(Seeing your face, the Man decides to take it back, and with a wave of his hands...)",
+            19: "...the Egg disappears.)",
+            20: "(The Man smiles. He points to his empty palm and then points at you...)",
+            21: "(...and at the coupon that, without realizing it, was in your hands all this time.) ",
+            22: "(As if it were a check, the man writes on the back... \"42701539\".)",
+            23: "(You have the strange feeling that this coupon might be useful somewhere...)",
+            24: "(The Man smiles and pats your head one last time.)",
+            25: "(Well, there is not a man here.)"
         },
 
         es: {
             1: "(Bueno, aquí hay un hombre.)",
-            2: "(Te ofrece algo.)",
-            3: "(Has recibido un huevo.)",
-            4: "(No, espera. Parece que no le quedan más huevos...)",
-            5: "(El hombre sonríe y, en su lugar, te entrega una especie de cupón.)",
-            6: "(Señala a su palma vacía. Tras eso, te señala a ti y...)",
-            7: "(...al cupón que, sin darte cuenta, ya estaba en tu mano desde que has entrado.)",
-            8: "(\"42701539\")",
-            9: "(El hombre sonríe.)",
-            10: "(Tienes la extraña sensación de que este cupón podría ser de cierta utilidad...)",
-            11: "(Bueno, aquí no hay un hombre.)"
+            2: "(Te mira con una sonrisa amable y te saluda suavemente.)",
+            3: "(Parece que te conoce de algo.)",
+            4: "(Pese a tus esfuerzos por enfocar su cara, no logras ponerle forma.)",
+            5: "(Sin embargo, la manera en la que sostiene tu mano... Es suficiente para reconocerle.)",
+            6: "(El hombre sonríe. Después, levanta su brazo hacia una dirección.)",
+            7: "(El hombre señala más allá de tu campo de visión.)",
+            8: "(Al darte la vuelta, te das cuenta. Puedes verlo todo.)",
+            9: "(Es como si el mismísimo tiempo hubiese tomado forma.)",
+            10: "(Sacudes suavemente la cabeza y al aclararte los ojos, ha desaparecido.)",
+            11: "(Devuelves tu mirada al hombre con la cabeza gacha.)",
+            12: "(El hombre posa su mano en tu cabeza, y con un pequeño toque, alivia tus pesares.)",
+            13: "(Meditas. Parece que has crecido mucho.)",
+            14: "(Al levantar la cabeza, finalmente, logras discernir el rostro del hombre.)",
+            15: "(Pero decides guardartelo para ti.)",
+            16: "(El Hombre te ofrece algo.)",
+            17: "(Has recibido un Huevo.)",
+            18: "(Al ver tu cara, el Hombre decide retirartelo y con un movimiento de manos...)" ,
+            19: "...el Huevo desaparece.)",
+            20: "(El Hombre sonríe. Señala su palma vacía y luego te señala a ti...)",
+            21: "(...y al cupón que, sin darte cuenta, portabas en tu mano todo este tiempo.) ",
+            22: "(Como si fuese un cheque, el hombre escribe en la parte de atrás... \"42701539\".)",
+            23: "(Tienes la extraña sensación de que este cupón podría ser de utilidad en algún sitio...)",
+            24: "(El Hombre sonríe y te acaricia la cabeza por última vez.)",
+            25: "(Bueno, aquí no hay un hombre.)"
         }
     },
 
@@ -660,7 +688,7 @@ $(function () {
                                 if (recievedEgg == false) {
                                     textTyping(gaster, dialogues[2][lang[lang_id]][id_dialogue], "text")
                                 } else if (recievedEgg == true) {
-                                    textTyping(gaster, dialogues[2][lang[lang_id]][11], "text")
+                                    textTyping(gaster, dialogues[2][lang[lang_id]][25], "text")
                                 }
                             }
                         } else if (inConversation == true) {
@@ -671,7 +699,7 @@ $(function () {
                                 inConversation = false;
                             } else if (id_convo == 2) {
                                 if (recievedEgg == false) {
-                                    if (id_dialogue < 11) {
+                                    if (id_dialogue < 25) {
                                         textTyping(gaster, dialogues[2][lang[lang_id]][id_dialogue], "text")
                                     } else {
                                         recievedEgg = true;
