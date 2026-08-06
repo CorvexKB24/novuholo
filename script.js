@@ -103,10 +103,10 @@ var snd_lancer = new Audio("snd/snd_lancer.mp3")
 snd_lancer.volume = 0.20;
 
 var snd_txtlop = new Audio("snd/snd_txtlop.wav")
-snd_txtlop.volume = 0.20;
+snd_txtlop.volume = 0.30;
 
 var snd_txtrie = new Audio("snd/snd_txtrie.wav")
-snd_txtrie.volume = 0.20;
+snd_txtrie.volume = 0.25;
 
 var textsound = new Audio("snd/snd_text.wav")
 
