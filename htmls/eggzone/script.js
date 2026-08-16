@@ -180,9 +180,9 @@ const dialogues = {
         en: {
             1: "(Well, there is a man here.)",
             2: "(He looks at you with a kind smile and gently waves at you.)",
-            3: "(It seems like you know him from somewhere.)",
-            4: "(Despite your efforts to focus on his face, you can't make out its features.)",
-            5: "(However, the way he holds your hand... It's enough to recognize him.)",
+            3: "(It seems like he knows you from somewhere.)",
+            4: "(Despite your efforts to focus on his face, you can't make out his features.)",
+            5: "(However, the way he holds your hand... it's enough to recognize him.)",
             6: "(The man smiles. Then, he raises his arm toward a direction.)",
             7: "(The man points beyond your field of vision.)",
             8: "(When you turn around, you realize. You can see everything.)",
@@ -191,17 +191,17 @@ const dialogues = {
             11: "(You turn your gaze back to the man, your head lowered.)",
             12: "(The man places his hand on your head, and with a gentle touch, eases your troubles.)",
             13: "(You ponder. It seems you've grown a lot.)",
-            14: "(When you finally raise your head, you can make out the man's face.)",
+            14: "(When you raise your head, you can finally make out the man's face.)",
             15: "(But you decide to keep it to yourself.)",
-            16: "(The Man offers you something.)",
+            16: "(The man offers you something.)",
             17: "(You have received an Egg.)",
-            18: "(Seeing your face, the Man decides to take it back, and with a wave of his hands...)",
+            18: "(Seeing your face, the man decides to take it back, and with a wave of his hands...)",
             19: "...the Egg disappears.)",
-            20: "(The Man smiles. He points to his empty palm and then points at you...)",
+            20: "(The man smiles. He points to his empty palm and then points at you...)",
             21: "(...and at the coupon that, without realizing it, was in your hands all this time.) ",
             22: "(As if it were a check, the man writes on the back... \"42701539\".)",
             23: "(You have the strange feeling that this coupon might be useful somewhere...)",
-            24: "(The Man smiles and pats your head one last time.)",
+            24: "(The man smiles and pats your head one last time.)",
             25: "(Well, there is not a man here.)"
         },
 
@@ -210,7 +210,7 @@ const dialogues = {
             2: "(Te mira con una sonrisa amable y te saluda suavemente.)",
             3: "(Parece que te conoce de algo.)",
             4: "(Pese a tus esfuerzos por enfocar su cara, no logras ponerle forma.)",
-            5: "(Sin embargo, la manera en la que sostiene tu mano... Es suficiente para reconocerle.)",
+            5: "(Sin embargo, la manera en la que sostiene tu mano... es suficiente para reconocerle.)",
             6: "(El hombre sonríe. Después, levanta su brazo hacia una dirección.)",
             7: "(El hombre señala más allá de tu campo de visión.)",
             8: "(Al darte la vuelta, te das cuenta. Puedes verlo todo.)",
@@ -220,16 +220,16 @@ const dialogues = {
             12: "(El hombre posa su mano en tu cabeza, y con un pequeño toque, alivia tus pesares.)",
             13: "(Meditas. Parece que has crecido mucho.)",
             14: "(Al levantar la cabeza, finalmente, logras discernir el rostro del hombre.)",
-            15: "(Pero decides guardartelo para ti.)",
-            16: "(El Hombre te ofrece algo.)",
+            15: "(Pero decides guardártelo para ti.)",
+            16: "(El hombre te ofrece algo.)",
             17: "(Has recibido un Huevo.)",
-            18: "(Al ver tu cara, el Hombre decide retirartelo y con un movimiento de manos...)" ,
+            18: "(Al ver tu cara, el hombre decide retirártelo y con un movimiento de manos...)" ,
             19: "...el Huevo desaparece.)",
-            20: "(El Hombre sonríe. Señala su palma vacía y luego te señala a ti...)",
+            20: "(El hombre sonríe. Señala su palma vacía y luego te señala a ti...)",
             21: "(...y al cupón que, sin darte cuenta, portabas en tu mano todo este tiempo.) ",
             22: "(Como si fuese un cheque, el hombre escribe en la parte de atrás... \"42701539\".)",
             23: "(Tienes la extraña sensación de que este cupón podría ser de utilidad en algún sitio...)",
-            24: "(El Hombre sonríe y te acaricia la cabeza por última vez.)",
+            24: "(El hombre sonríe y te acaricia la cabeza por última vez.)",
             25: "(Bueno, aquí no hay un hombre.)"
         }
     },
@@ -310,7 +310,17 @@ function textTyping(textbox, dialogue, soundNeeded, i = 0, onComplete = null) {
 
 let posX = 394;
 let posY = 492;
-const SPEED = 2;
+
+const SPEED = 5;
+
+const SECRET_PATH_CENTER = 960;
+const SECRET_PATH_HALF_WIDTH = 10;
+const SECRET_PATH_MIN = SECRET_PATH_CENTER - SECRET_PATH_HALF_WIDTH;
+const SECRET_PATH_MAX = SECRET_PATH_CENTER + SECRET_PATH_HALF_WIDTH;
+
+function isInSecretPath(x) {
+    return x >= SECRET_PATH_MIN && x <= SECRET_PATH_MAX;
+}
 
 function moveCharacter() {
     character.style.left = posX + "px";
@@ -334,104 +344,177 @@ function isPressed(...keys) {
     return keys.some(k => keysPressed[k]);
 }
 
-function updateMovement() {
+const LOGIC_HZ = 60;
+const LOGIC_STEP_MS = 1000 / LOGIC_HZ;
+
+let lastTimestamp = null;
+let accumulatorMs = 0;
+
+function updateMovement(timestamp) {
+    if (lastTimestamp === null) {
+        lastTimestamp = timestamp;
+    }
+    let frameDelta = timestamp - lastTimestamp;
+    lastTimestamp = timestamp;
+
+    frameDelta = Math.min(frameDelta, 250);
+
+    accumulatorMs += frameDelta;
+
+    while (accumulatorMs >= LOGIC_STEP_MS) {
+        runLogicStep();
+        accumulatorMs -= LOGIC_STEP_MS;
+    }
+
+    requestAnimationFrame(updateMovement);
+}
+
+function moveOutdoorX(direction) {
+    const oldX = posX;
+    let target = posX + direction * SPEED;
+    target = Math.min(Math.max(target, 150), 1770); 
+
+    const gateOpen = posY >= 370 && posY <= 560;
+
+    if (direction > 0) {
+        if (posX <= 650 && target > 650 && !gateOpen) {
+            target = 650;
+        }
+
+        if (posX < SECRET_PATH_MIN && target > SECRET_PATH_MIN) {
+            target = SECRET_PATH_MIN;
+        }
+    } else {
+        if (posX >= 1290 && target < 1290 && !gateOpen) {
+            target = 1290;
+        }
+        if (posX > SECRET_PATH_MAX && target < SECRET_PATH_MAX) {
+            target = SECRET_PATH_MAX;
+        }
+    }
+
+    if (target === posX) return false;
+
+    posX = target;
+    moveCharacter();
+
+    if (!isInSecretPath(oldX) && isInSecretPath(posX)) {
+        addInBetween();
+        checkInBetween();
+    }
+    return true;
+}
+
+function moveOutdoorY(direction) {
+    let target = posY + direction * SPEED;
+
+    if (direction < 0) {
+        if (posX >= 150 && posX <= 650) {
+            target = Math.max(target, 200);
+        } else if (posX >= 660 && posX <= 1260) {
+            target = Math.max(target, 370);
+        } else if (posX > 1260) {
+            target = Math.max(target, 200);
+        }
+    } else {
+        if (posX >= 150 && posX <= 650) {
+            target = Math.min(target, 720);
+        } else if (isInSecretPath(posX)) {
+
+        } else if ((posX >= 660 && posX < SECRET_PATH_MIN) || (posX > SECRET_PATH_MAX && posX <= 1260)) {
+            target = Math.min(target, 560);
+        } else if (posX > 1260) {
+            target = Math.min(target, 720);
+        }
+    }
+
+    if (target === posY) return false;
+
+    posY = target;
+    moveCharacter();
+    return true;
+}
+
+function moveEggRoomX(direction) {
+    let target = posX + direction * SPEED;
+    const treeYBand = posY > 466 && posY <= 504;
+
+    if (direction > 0) {
+        target = Math.min(target, 1866); 
+
+        if (treeYBand && posX <= 852 && target > 852) {
+            target = 852; 
+        }
+    } else {
+        target = Math.max(target, 62); 
+        if (treeYBand && posX >= 1064 && target < 1064) {
+            target = 1064; 
+        }
+    }
+
+    if (target === posX) return false;
+
+    posX = target;
+    moveCharacter();
+    return true;
+}
+
+function moveEggRoomY(direction) {
+    let target = posY + direction * SPEED;
+    const treeXBand = posX > 852 && posX <= 1064;
+
+    if (direction < 0) {
+        target = Math.max(target, 88); 
+        if (treeXBand && posY >= 504 && target < 504) {
+            target = 504; 
+        }
+    } else {
+        if (treeXBand && posY <= 466 && target > 466) {
+            target = 466; 
+        }
+        if (!recievedEgg) {
+            target = Math.min(target, 964);
+        }
+    }
+
+    if (target === posY) return false;
+
+    posY = target;
+    moveCharacter();
+
+    if (direction > 0 && posY >= 1200) {
+        location.reload();
+        location.href = "../../index.html";
+    }
+    return true;
+}
+
+function runLogicStep() {
     if (started == true) {
         if (inEggRoom == false) {
 
             let horizDir = null, horizMoved = false;
             let vertDir = null, vertMoved = false;
 
-            if ((posX == 960 && posY >= 570) == false) {
+            if ((isInSecretPath(posX) && posY >= 570) == false) {
                 if (isPressed("ARROWRIGHT", "D")) {
                     horizDir = "right";
-                    if (posX < 1770) {
-                        if (posX != 650) {
-                            posX += SPEED;
-                            horizMoved = true;
-                            moveCharacter();
-                            addInBetween();
-                            checkInBetween();
-                        } else if (posX == 650) {
-                            if (posY >= 370 && posY <= 560) {
-                                posX += SPEED;
-                                horizMoved = true;
-                                moveCharacter();
-                                addInBetween();
-                                checkInBetween();
-                            }
-                        }
-                    }
+                    horizMoved = moveOutdoorX(1) || horizMoved;
                 }
 
                 if (isPressed("ARROWLEFT", "A")) {
                     horizDir = "left";
-                    if (posX > 150) {
-                        if (posX != 1290) {
-                            posX -= SPEED;
-                            horizMoved = true;
-                            moveCharacter();
-                            addInBetween();
-                            checkInBetween();
-                        } else if (posX == 1290) {
-                            if (posY >= 370 && posY <= 560) {
-                                posX -= SPEED;
-                                horizMoved = true;
-                                moveCharacter();
-                                addInBetween();
-                                checkInBetween();
-                            }
-                        }
-                    }
+                    horizMoved = moveOutdoorX(-1) || horizMoved;
                 }
 
                 if (isPressed("ARROWUP", "W")) {
                     vertDir = "up";
-                    if (posX <= 650 && posX >= 150) {
-                        if (posY > 200) {
-                            posY -= SPEED;
-                            vertMoved = true;
-                            moveCharacter();
-                        }
-                    } else if (posX >= 660 && posX <= 1260) {
-                        if (posY > 370) {
-                            posY -= SPEED;
-                            vertMoved = true;
-                            moveCharacter();
-                        }
-                    } else if (posX > 1260) {
-                        if (posY > 200) {
-                            posY -= SPEED;
-                            vertMoved = true;
-                            moveCharacter();
-                        }
-                    }
+                    vertMoved = moveOutdoorY(-1) || vertMoved;
                 }
 
                 if (isPressed("ARROWDOWN", "S")) {
                     vertDir = "down";
-                    if (posX <= 650 && posX >= 150) {
-                        if (posY < 720) {
-                            posY += SPEED;
-                            vertMoved = true;
-                            moveCharacter();
-                        }
-                    } else if (posX >= 660 && posX < 960 || posX > 960 && posX <= 1260) {
-                        if (posY < 560) {
-                            posY += SPEED;
-                            vertMoved = true;
-                            moveCharacter();
-                        }
-                    } else if (posX > 1260) {
-                        if (posY < 720) {
-                            posY += SPEED;
-                            vertMoved = true;
-                            moveCharacter();
-                        }
-                    } else if (posX == 960) {
-                        posY += SPEED;
-                        vertMoved = true;
-                        moveCharacter();
-                    }
+                    vertMoved = moveOutdoorY(1) || vertMoved;
                 }
             } else {
                 if (isPressed("ARROWRIGHT", "D")) {
@@ -460,7 +543,7 @@ function updateMovement() {
             const outdoorMoved = horizMoved || vertMoved;
             updateFacingAnimation(outdoorDir, outdoorMoved);
 
-            if (posY == 1200) {
+            if (posY >= 1200) {
                 inEggRoom = true;
                 posX = 960;
                 posY = 964;
@@ -476,55 +559,22 @@ function updateMovement() {
 
                 if (isPressed("ARROWRIGHT", "D")) {
                     dir = "right";
-                    if (posX != 1866) {
-                        if (((posY <= 504 && posY > 466) && posX == 852) == false) {
-                            posX += SPEED;
-                            moved = true;
-                            moveCharacter();
-                        }
-                    }
+                    moved = moveEggRoomX(1) || moved;
                 }
 
                 if (isPressed("ARROWLEFT", "A")) {
                     dir = "left";
-                    if (posX != 62) {
-                        posX -= SPEED;
-                        moved = true;
-                        moveCharacter();
-                    }
+                    moved = moveEggRoomX(-1) || moved;
                 }
 
                 if (isPressed("ARROWUP", "W")) {
                     dir = "up";
-                    if (posY != 88) {
-                        if (((posX > 852 && posX <= 1064) && posY == 504) == false) {
-                            posY -= SPEED;
-                            moved = true;
-                            moveCharacter();
-                        }
-                    }
+                    moved = moveEggRoomY(-1) || moved;
                 }
 
                 if (isPressed("ARROWDOWN", "S")) {
                     dir = "down";
-                    if (posY != 964) {
-                        if (((posX > 852 && posX <= 1064) && posY == 466) == false) {
-                            posY += SPEED;
-                            moved = true;
-                            moveCharacter();
-
-                            if (posY == 1200) {
-                                location.reload();
-                                location.href = "../../index.html";
-                            }
-                        }
-                    } else {
-                        if (recievedEgg == true) {
-                            posY += SPEED;
-                            moved = true;
-                            moveCharacter();
-                        }
-                    }
+                    moved = moveEggRoomY(1) || moved;
                 }
 
                 updateFacingAnimation(dir, moved);
@@ -541,7 +591,6 @@ function updateMovement() {
             }
         }
     }
-    requestAnimationFrame(updateMovement);
 }
 
 requestAnimationFrame(updateMovement);
@@ -755,10 +804,8 @@ function hideDialogue() {
 }
 
 function addInBetween() {
-    if (posX == 960) {
-        inBetween++;
-        console.log(inBetween);
-    }
+    inBetween++;
+    console.log(inBetween);
 }
 
 function checkInBetween() {

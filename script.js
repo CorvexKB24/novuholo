@@ -1,6 +1,5 @@
-// v.0.6
+// v.0.7
 
-// Constants
 const html = document.documentElement;
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
@@ -46,7 +45,6 @@ function preloadAssets(list) {
 
 preloadAssets(ASSETS_TO_PRELOAD);
 
-// Variables
 var musicState = true;
 var talking = false;
 var isNovuStillTalking = false;
@@ -69,7 +67,6 @@ var id_art = 1;
 var heartSelected = 0;
 var LOVE = 0;
 
-// Event Listeners
 window.addEventListener("resize", resizeScene);
 window.addEventListener("resize", resizeEnterMenu);
 window.addEventListener("load", resizeScene);
@@ -96,7 +93,6 @@ artZoomOverlay.addEventListener("click", () => {
         console.log(`Can't do it because inGuideSection = ${inGuideSection}`)
 });
 
-// Sounds
 var shopSong = new Audio("snd/shop_fei_theme.wav");
 
 var snd_select = new Audio("snd/snd_select.wav")
@@ -114,7 +110,6 @@ var textsound = new Audio("snd/snd_text.wav")
 
 var talksound = new Audio("snd/snd_txtral.wav")
 
-// Language related
 const lang = {
     1: "en",
     2: "es"
@@ -122,7 +117,6 @@ const lang = {
 
 var lang_id = 1;
 
-// TRANSLATIONS OF THE OPTIONS MENU
 const menuOptions = {
     0: {
         en: {
@@ -186,7 +180,6 @@ const menuOptions = {
     },
 }
 
-// TRANSLATIONS OF THE GUIDE
 const guide_texts = {
     0: {
         en: {
@@ -317,7 +310,6 @@ const info_texts = {
     }
 }
 
-// TRANSLATIONS OF CONVERSATIONS
 const conversations = {
     0: {
         en: {
@@ -598,7 +590,7 @@ const conversations = {
     },
 
     13: {
-        en: { // FALTA TRADUCIR
+        en: {
             1: "My scarf? Yeah, it's cool.",
             2: "Over time, I've been getting new ones in different colors.",
             3: "I guess we could say each one represents something.",

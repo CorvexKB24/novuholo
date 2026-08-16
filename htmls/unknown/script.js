@@ -104,7 +104,7 @@ const dialogues = {
         en: {
             1: { text: "Vaya. Ja, ja. Eres todo un caso.", img: "bombillo_9.gif" },
             2: { text: "¿De verdad tienes tantas ganas de recibir algo de mi parte? Guau.", img: "bombillo_10.gif" },
-            3: { text: "Bueno, venga, mira. Contacta con quién está a cargo de todo esto y dile de mi parte. . .", img: "bombillo_3.gif" },
+            3: { text: "Bueno, venga, mira. Contacta con quien está a cargo de todo esto y dile de mi parte. . .", img: "bombillo_3.gif" },
             4: { text: ". . .que oyes el silbato del tren desde el fondo del abismo. ", img: "bombillo_2.gif" },
             5: { text: "Además, dale este billete y seguro que sabe recompensarte en algún sitio.", img: "bombillo_1.gif" }
         },
@@ -112,7 +112,7 @@ const dialogues = {
         es: {
             1: { text: "Vaya. Ja, ja. Eres todo un caso.", img: "bombillo_9.gif" },
             2: { text: "¿De verdad tienes tantas ganas de recibir algo de mi parte? Guau.", img: "bombillo_10.gif" },
-            3: { text: "Bueno, venga, mira. Contacta con quién está a cargo de todo esto y dile de mi parte. . .", img: "bombillo_3.gif" },
+            3: { text: "Bueno, venga, mira. Contacta con quien está a cargo de todo esto y dile de mi parte. . .", img: "bombillo_3.gif" },
             4: { text: ". . .que oyes el silbato del tren desde el fondo del abismo. ", img: "bombillo_2.gif" },
             5: { text: "Además, dale este billete y seguro que sabe recompensarte en algún sitio.", img: "bombillo_1.gif" }
         }
@@ -142,10 +142,10 @@ const dialogues = {
         en: {
             1: { text: ". . .", img: "bombillo_5.gif" },
             2: { text: "¿Sabes lo que significa o has conseguido este número en alguna parte. . .?", img: "bombillo_6.gif" },
-            3: { text: "¿. . .y has pensado \"Eh, voy a probarlo!!! Quizá es el correcto!!!\"?", img: "bombillo_8.gif" },
+            3: { text: "¿. . .y has pensado \"¡¡¡Eh, voy a probarlo!!! ¡¡¡Quizá es el correcto!!!\"?", img: "bombillo_8.gif" },
             4: { text: "Mal rollete colega. Que a veces tienen significado.", img: "bombillo_11.gif" },
             5: { text: "Y estoy seguro de que tú no lo conoces.", img: "bombillo_1.gif" },
-            6: { text: "Ni falta que hace, está bien cómo está.", img: "bombillo.gif" }
+            6: { text: "Ni falta que hace, está bien como está.", img: "bombillo.gif" }
         },
 
         es: {
@@ -238,12 +238,12 @@ const dialogues = {
 
     11: {
         en: {
-            1: { text: "Una luna en estado creciente permanente.", img: "bombillo_15.gif" },
+            1: { text: "Una luna en fase creciente permanente.", img: "bombillo_15.gif" },
             2: { text: "Símbolo de muchas enseñanzas.", img: "bombillo_4.gif" }
         },
 
         es: {
-            1: { text: "Una luna en estado creciente permanente.", img: "bombillo_15.gif" },
+            1: { text: "Una luna en fase creciente permanente.", img: "bombillo_15.gif" },
             2: { text: "Símbolo de muchas enseñanzas.", img: "bombillo_4.gif" }
         }
     },
@@ -251,12 +251,12 @@ const dialogues = {
     12: {
         en: {
             1: { text: "¡2202!", img: "bombillo_3.gif" },
-            2: { text: "¡Está apuntando en mí porque soy el más importante!", img: "bombillo_10.gif" }
+            2: { text: "¡Está apuntado en mí porque soy el más importante!", img: "bombillo_10.gif" }
         },
 
         es: {
             1: { text: "¡2202!", img: "bombillo_3.gif" },
-            2: { text: "¡Está apuntando en mí porque soy el más importante!", img: "bombillo_10.gif" }
+            2: { text: "¡Está apuntado en mí porque soy el más importante!", img: "bombillo_10.gif" }
         }
     },
 
