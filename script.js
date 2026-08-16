@@ -1,3 +1,5 @@
+// v.0.6
+
 // Constants
 const html = document.documentElement;
 const DESIGN_WIDTH = 1920;
@@ -227,7 +229,7 @@ const guide_texts = {
             4: "Leave the picture showcase mode",
             5: "Press [G] to open/close guide",
             6: "Press [M] to mute/unmute music",
-            7: "Close the guide window (she will suffer)",
+            7: "Close the guide window (it will suffer)",
             8: "Press [I] to open/close info"
         },
 
@@ -1329,7 +1331,7 @@ $(function () {
                                         id_dialogue = 1;
                                         inConversation = false;
                                         changeNovuFace();
-                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "talk");
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text");
                                     }
                                 }
                             }
@@ -1343,7 +1345,7 @@ $(function () {
                                         id_dialogue = 1;
                                         inConversation = false;
                                         changeNovuFace();
-                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "talk");
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text");
                                     }
                                 }
                             }

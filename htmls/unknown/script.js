@@ -11,21 +11,22 @@ const lang = {
 };
 
 const IMAGE_PATHS = [
-    "img/1225.png",
-    "img/1234.png",
-    "img/1303.png",
-    "img/2202.png",
-    "img/2406.png",
-    "img/2912.png",
-    "img/5267.png",
-    "img/6453.png",
-    "img/6666.png",
-    "img/6767.png",
-    "img/6996.png",
-    "img/9999.png",
-    "img/default.png",
-    "img/wrong.png",
-    "img/goodbye.png"
+    "img/bombillo.gif",
+    "img/bombillo_1.gif",
+    "img/bombillo_2.gif",
+    "img/bombillo_3.gif",
+    "img/bombillo_4.gif",
+    "img/bombillo_5.gif",
+    "img/bombillo_6.gif",
+    "img/bombillo_7.gif",
+    "img/bombillo_8.gif",
+    "img/bombillo_9.gif",
+    "img/bombillo_10.gif",
+    "img/bombillo_11.gif",
+    "img/bombillo_12.gif",
+    "img/bombillo_13.gif",
+    "img/bombillo_14.gif",
+    "img/bombillo_15.gif"
 ];
 
 const preloadedImages = {};
@@ -81,193 +82,193 @@ window.addEventListener("load", resizeScene);
 const dialogues = {
     1: {
         en: {
-            1: "¿Qué esperabas encontrar?",
-            2: "Si quieres árboles, huevos, púas o billetes... Este no es tu sitio.",
-            3: "De hecho, aquel lugar mola. Tiene unas vistas maravillosas.",
-            4: "Una pena que escondieran los prismáticos.",
-            5: "En fin, lo siento, pero no tengo nada que ofrecerte.",
-            6: "Tendrás que volver en otro momento."
+            1: { text: "¿Qué esperabas encontrar?", img: "bombillo.gif" },
+            2: { text: "Si quieres árboles, huevos, púas o billetes... Este no es tu sitio.", img: "bombillo_1.gif" },
+            3: { text: "De hecho, aquel lugar mola. Tiene unas vistas maravillosas.", img: "bombillo_1.gif" },
+            4: { text: "Una pena que escondieran los prismáticos.", img: "bombillo_2.gif" },
+            5: { text: "En fin, lo siento, pero no tengo nada que ofrecerte.", img: "bombillo_2.gif" },
+            6: { text: "Tendrás que volver en otro momento.", img: "bombillo_2.gif" }
         },
 
         es: {
-            1: "¿Qué esperabas encontrar?",
-            2: "Si quieres árboles, huevos, púas o billetes... Este no es tu sitio.",
-            3: "De hecho, aquel lugar mola. Tiene unas vistas maravillosas.",
-            4: "Una pena que escondieran los prismáticos.",
-            5: "En fin, lo siento, pero no tengo nada que ofrecerte.",
-            6: "Tendrás que volver en otro momento."
+            1: { text: "¿Qué esperabas encontrar?", img: "bombillo.gif" },
+            2: { text: "Si quieres árboles, huevos, púas o billetes... Este no es tu sitio.", img: "bombillo_1.gif" },
+            3: { text: "De hecho, aquel lugar mola. Tiene unas vistas maravillosas.", img: "bombillo_1.gif" },
+            4: { text: "Una pena que escondieran los prismáticos.", img: "bombillo_2.gif" },
+            5: { text: "En fin, lo siento, pero no tengo nada que ofrecerte.", img: "bombillo_2.gif" },
+            6: { text: "Tendrás que volver en otro momento.", img: "bombillo_2.gif" }
         }
     },
 
     2: {
         en: {
-            1: "Vaya. Ja, ja. Eres todo un caso.",
-            2: "¿De verdad tienes tantas ganas de recibir algo de mi parte? Guau.",
-            3: "Bueno, venga, mira. Contacta con quién está a cargo de todo esto y dile de mi parte. . .",
-            4: ". . .que oyes el silbato del tren desde el fondo del abismo. ",
-            5: "Además, dale este billete y seguro que sabe recompensarte en algún sitio."
+            1: { text: "Vaya. Ja, ja. Eres todo un caso.", img: "bombillo_9.gif" },
+            2: { text: "¿De verdad tienes tantas ganas de recibir algo de mi parte? Guau.", img: "bombillo_10.gif" },
+            3: { text: "Bueno, venga, mira. Contacta con quién está a cargo de todo esto y dile de mi parte. . .", img: "bombillo_3.gif" },
+            4: { text: ". . .que oyes el silbato del tren desde el fondo del abismo. ", img: "bombillo_2.gif" },
+            5: { text: "Además, dale este billete y seguro que sabe recompensarte en algún sitio.", img: "bombillo_1.gif" }
         },
 
         es: {
-            1: "Vaya. Ja, ja. Eres todo un caso.",
-            2: "¿De verdad tienes tantas ganas de recibir algo de mi parte? Guau.",
-            3: "Bueno, venga, mira. Contacta con quién está a cargo de todo esto y dile de mi parte. . .",
-            4: ". . .que oyes el silbato del tren desde el fondo del abismo. ",
-            5: "Además, dale este billete y seguro que sabe recompensarte en algún sitio."
+            1: { text: "Vaya. Ja, ja. Eres todo un caso.", img: "bombillo_9.gif" },
+            2: { text: "¿De verdad tienes tantas ganas de recibir algo de mi parte? Guau.", img: "bombillo_10.gif" },
+            3: { text: "Bueno, venga, mira. Contacta con quién está a cargo de todo esto y dile de mi parte. . .", img: "bombillo_3.gif" },
+            4: { text: ". . .que oyes el silbato del tren desde el fondo del abismo. ", img: "bombillo_2.gif" },
+            5: { text: "Además, dale este billete y seguro que sabe recompensarte en algún sitio.", img: "bombillo_1.gif" }
         }
     },
 
     3: {
         en: {
-            1: "Colega, creo que te equivocas de sitio.",
-            2: "Sé que este sitio te debe recordar a otro cierto lugar.",
-            3: "Pero no te flipes tanto.",
-            4: "Ese número no significa nada para mí.",
-            5: "Aunque las festividades de diciembre siempre molen. . .",
-            6: "Desaparece hasta entonces, anda."
+            1: { text: "Colega, creo que te equivocas de sitio.", img: "bombillo_11.gif" },
+            2: { text: "Sé que este sitio te debe recordar a otro cierto lugar.", img: "bombillo_8.gif" },
+            3: { text: "Pero no te flipes tanto.", img: "bombillo_10.gif" },
+            4: { text: "Ese número no significa nada para mí.", img: "bombillo_1.gif" },
+            5: { text: "Aunque las festividades de diciembre siempre molen. . .", img: "bombillo_3.gif" },
+            6: { text: "Desaparece hasta entonces, anda.", img: "bombillo_8.gif" }
         },
 
         es: {
-            1: "Colega, creo que te equivocas de sitio.",
-            2: "Sé que este sitio te debe recordar a otro cierto lugar.",
-            3: "Pero no te flipes tanto.",
-            4: "Ese número no significa nada para mí.",
-            5: "Aunque las festividades de diciembre siempre molen. . .",
-            6: "Desaparece hasta entonces, anda."
+            1: { text: "Colega, creo que te equivocas de sitio.", img: "bombillo_11.gif" },
+            2: { text: "Sé que este sitio te debe recordar a otro cierto lugar.", img: "bombillo_8.gif" },
+            3: { text: "Pero no te flipes tanto.", img: "bombillo_10.gif" },
+            4: { text: "Ese número no significa nada para mí.", img: "bombillo_1.gif" },
+            5: { text: "Aunque las festividades de diciembre siempre molen. . .", img: "bombillo_3.gif" },
+            6: { text: "Desaparece hasta entonces, anda.", img: "bombillo_8.gif" }
         }
     },
 
     4: {
         en: {
-            1: ". . .",
-            2: "¿Sabes lo que significa o has conseguido este número en alguna parte. . .?",
-            3: "¿. . .y has pensado \"Eh, voy a probarlo!!! Quizá es el correcto!!!\"?",
-            4: "Mal rollete colega. Que a veces tienen significado.",
-            5: "Y estoy seguro de que tú no lo conoces.",
-            6: "Ni falta que hace, está bien cómo está."
+            1: { text: ". . .", img: "bombillo_5.gif" },
+            2: { text: "¿Sabes lo que significa o has conseguido este número en alguna parte. . .?", img: "bombillo_6.gif" },
+            3: { text: "¿. . .y has pensado \"Eh, voy a probarlo!!! Quizá es el correcto!!!\"?", img: "bombillo_8.gif" },
+            4: { text: "Mal rollete colega. Que a veces tienen significado.", img: "bombillo_11.gif" },
+            5: { text: "Y estoy seguro de que tú no lo conoces.", img: "bombillo_1.gif" },
+            6: { text: "Ni falta que hace, está bien cómo está.", img: "bombillo.gif" }
         },
 
         es: {
-            1: ". . .",
-            2: "¿Sabes lo que significa o has conseguido este número en alguna parte. . .?",
-            3: "¿. . .y has pensado \"Eh, voy a probarlo!!! Quizá es el correcto!!!\"?",
-            4: "Mal rollete colega. Que a veces tienen significado.",
-            5: "Y estoy seguro de que tú no lo conoces.",
-            6: "Ni falta que hace, está bien cómo está."
+            1: { text: ". . .", img: "bombillo_5.gif" },
+            2: { text: "¿Sabes lo que significa o has conseguido este número en alguna parte. . .?", img: "bombillo_6.gif" },
+            3: { text: "¿. . .y has pensado \"Eh, voy a probarlo!!! Quizá es el correcto!!!\"?", img: "bombillo_8.gif" },
+            4: { text: "Mal rollete colega. Que a veces tienen significado.", img: "bombillo_11.gif" },
+            5: { text: "Y estoy seguro de que tú no lo conoces.", img: "bombillo_1.gif" },
+            6: { text: "Ni falta que hace, está bien cómo está.", img: "bombillo.gif" }
         }
     },
 
     5: {
         en: {
-            1: ":D"
+            1: { text: ":D", img: "bombillo_4.gif" }
         },
 
         es: {
-            1: ":D"
+            1: { text: ":D", img: "bombillo_4.gif" }
         }
     },
 
     6: {
         en: {
-            1: "¿Quién será? ¿Quién será? ",
-            2: "¿Serás tú?",
-            3: "¿Seré yo?",
-            4: "¿Seremos todos?",
-            5: "Esa es mi teoría.",
-            6: "Ja, ja, ja."
+            1: { text: "¿Quién será? ¿Quién será? ", img: "bombillo_9.gif" },
+            2: { text: "¿Serás tú?", img: "bombillo_10.gif" },
+            3: { text: "¿Seré yo?", img: "bombillo_3.gif" },
+            4: { text: "¿Seremos todos?", img: "bombillo_13.gif" },
+            5: { text: "Esa es mi teoría.", img: "bombillo_14.gif" },
+            6: { text: "Ja, ja, ja.", img: "bombillo_15.gif" }
         },
 
         es: {
-            1: "¿Quién será? ¿Quién será? ",
-            2: "¿Serás tú?",
-            3: "¿Seré yo?",
-            4: "¿Seremos todos?",
-            5: "Esa es mi teoría.",
-            6: "Ja, ja, ja."
+            1: { text: "¿Quién será? ¿Quién será? ", img: "bombillo_9.gif" },
+            2: { text: "¿Serás tú?", img: "bombillo_10.gif" },
+            3: { text: "¿Seré yo?", img: "bombillo_3.gif" },
+            4: { text: "¿Seremos todos?", img: "bombillo_13.gif" },
+            5: { text: "Esa es mi teoría.", img: "bombillo_14.gif" },
+            6: { text: "Ja, ja, ja.", img: "bombillo_15.gif" }
         }
     },
 
     7: {
         en: {
-            1: "Nunca falla."
+            1: { text: "Nunca falla.", img: "bombillo_9.gif" }
         },
 
         es: {
-            1: "Nunca falla."
+            1: { text: "Nunca falla.", img: "bombillo_9.gif" }
         }
     },
 
     8: {
         en: {
-            1: "Qué repelente."
+            1: { text: "Qué repelente.", img: "bombillo_11.gif" }
         },
 
         es: {
-            1: "Qué repelente."
+            1: { text: "Qué repelente.", img: "bombillo_11.gif" }
         }
     },
 
     9: {
         en: {
-            1: "Mi número favorito.",
-            2: "No hay número más grande, después de todo.",
-            3: "Pero no es el correcto."
+            1: { text: "Mi número favorito.", img: "bombillo_14.gif" },
+            2: { text: "No hay número más grande, después de todo.", img: "bombillo_14.gif" },
+            3: { text: "Pero no es el correcto.", img: "bombillo_1.gif" }
         },
 
         es: {
-            1: "Mi número favorito.",
-            2: "No hay número más grande, después de todo.",
-            3: "Pero no es el correcto."
+            1: { text: "Mi número favorito.", img: "bombillo_14.gif" },
+            2: { text: "No hay número más grande, después de todo.", img: "bombillo_14.gif" },
+            3: { text: "Pero no es el correcto.", img: "bombillo_1.gif" }
         }
     },
 
     10: {
         en: {
-            1: ". . .",
-            2: "¿de verdad?",
-            3: "¿colega, te crees que soy tonto?"
+            1: { text: ". . .", img: "bombillo_11.gif" },
+            2: { text: "¿de verdad?", img: "bombillo_5.gif" },
+            3: { text: "¿colega, te crees que soy tonto?", img: "bombillo_8.gif" }
         },
 
         es: {
-            1: ". . .",
-            2: "¿de verdad?",
-            3: "¿colega, te crees que soy tonto?"
+            1: { text: ". . .", img: "bombillo_11.gif" },
+            2: { text: "¿de verdad?", img: "bombillo_5.gif" },
+            3: { text: "¿colega, te crees que soy tonto?", img: "bombillo_8.gif" }
         }
     },
 
     11: {
         en: {
-            1: "Una luna en estado creciente permanente.",
-            2: "Símbolo de muchas enseñanzas."
+            1: { text: "Una luna en estado creciente permanente.", img: "bombillo_15.gif" },
+            2: { text: "Símbolo de muchas enseñanzas.", img: "bombillo_4.gif" }
         },
 
         es: {
-            1: "Una luna en estado creciente permanente.",
-            2: "Símbolo de muchas enseñanzas."
+            1: { text: "Una luna en estado creciente permanente.", img: "bombillo_15.gif" },
+            2: { text: "Símbolo de muchas enseñanzas.", img: "bombillo_4.gif" }
         }
     },
 
     12: {
         en: {
-            1: "¡2202!",
-            2: "¡Está apuntando en mí porque soy el más importante!"
+            1: { text: "¡2202!", img: "bombillo_3.gif" },
+            2: { text: "¡Está apuntando en mí porque soy el más importante!", img: "bombillo_10.gif" }
         },
 
         es: {
-            1: "¡2202!",
-            2: "¡Está apuntando en mí porque soy el más importante!"
+            1: { text: "¡2202!", img: "bombillo_3.gif" },
+            2: { text: "¡Está apuntando en mí porque soy el más importante!", img: "bombillo_10.gif" }
         }
     },
 
     13: {
         en: {
-            1: "¡Er diablo!",
-            2: "Ah no espera, eso era con 3."
+            1: { text: "¡Er diablo!", img: "bombillo_7.gif" },
+            2: { text: "Ah no espera, eso era con 3.", img: "bombillo.gif" }
         },
 
         es: {
-            1: "¡Er diablo!",
-            2: "Ah no espera, eso era con 3."
+            1: { text: "¡Er diablo!", img: "bombillo_7.gif" },
+            2: { text: "Ah no espera, eso era con 3.", img: "bombillo.gif" }
         }
     }
 }
@@ -284,22 +285,28 @@ function resizeScene() {
 resizeScene();
 
 var talking = false;
-function textTyping(textbox, dialogue, soundNeeded, i = 0, onComplete = null) {
+function textTyping(textbox, dialogueLine, soundNeeded, i = 0, onComplete = null) {
+    const text = dialogueLine.text;
+
     if (i === 0) {
         textbox.textContent = "";
         talking = true;
+
+        if (dialogueLine.img) {
+            scene.style.backgroundImage = `url('img/${dialogueLine.img}')`;
+        }
     }
 
-    if (dialogue[i] != " " && dialogue[i] != "." && dialogue[i] != "," && dialogue[i] != "?" && dialogue[i] != "¿" && dialogue[i] != "!" && dialogue[i] != "¡" && dialogue[i] != "'") {
+    if (text[i] != " " && text[i] != "." && text[i] != "," && text[i] != "?" && text[i] != "¿" && text[i] != "!" && text[i] != "¡" && text[i] != "'") {
         if (soundNeeded == "text") {
             playTextsound();
         } else if (soundNeeded == "talk") {
             playTalksound();
         }
     }
-    textbox.textContent += dialogue[i];
+    textbox.textContent += text[i];
 
-    if (i === dialogue.length - 1) {
+    if (i === text.length - 1) {
         id_dialogue++;
 
         if (onComplete) onComplete();
@@ -307,7 +314,7 @@ function textTyping(textbox, dialogue, soundNeeded, i = 0, onComplete = null) {
         return;
     }
 
-    setTimeout(() => textTyping(textbox, dialogue, soundNeeded, i + 1, onComplete), 50);
+    setTimeout(() => textTyping(textbox, dialogueLine, soundNeeded, i + 1, onComplete), 50);
 }
 
 var selected = 1;
@@ -330,31 +337,57 @@ $(function () {
     $(document).keydown(function (e) {
         var key = (e.key).toUpperCase();
         if (inConversation == false) {
-            if (key == "ARROWLEFT" || key == "A") {
-                if (selected > 1) {
-                    $(`#num${selected}`).removeClass("selected");
-                    selected--;
-                    $(`#num${selected}`).addClass("selected");
-                }
-            } else if (key == "ARROWRIGHT" || key == "D") {
-                if (selected < 4) {
+
+            if (key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9") {
+                nums[selected - 1] = key;
+
+                $(`#num${selected}`).text(nums[selected - 1]);
+                playSelectSound();
+
+                if (selected == 1 || selected == 2 || selected == 3) {
                     $(`#num${selected}`).removeClass("selected");
                     selected++;
                     $(`#num${selected}`).addClass("selected");
+                } else if (selected == 4) {
+                    $(`#num${selected}`).removeClass("selected");
+                    selected = 1;
+                    $(`#num${selected}`).addClass("selected");
                 }
-            }
+            } else {
+                if (key == "ARROWLEFT" || key == "A") {
+                    if (selected > 1) {
+                        $(`#num${selected}`).removeClass("selected");
+                        selected--;
+                        $(`#num${selected}`).addClass("selected");
+                    }
+                } else if (key == "ARROWRIGHT" || key == "D") {
+                    if (selected < 4) {
+                        $(`#num${selected}`).removeClass("selected");
+                        selected++;
+                        $(`#num${selected}`).addClass("selected");
+                    }
+                }
 
-            if (key == "ARROWUP" || key == "W") {
-                if (nums[selected - 1] < 9) {
-                    nums[selected - 1]++;
-                    $(`#num${selected}`).text(nums[selected - 1]);
-                    playSelectSound();
-                }
-            } else if (key == "ARROWDOWN" || key == "S") {
-                if (nums[selected - 1] > 0) {
-                    nums[selected - 1]--;
-                    $(`#num${selected}`).text(nums[selected - 1]);
-                    playSelectSound();
+                if (key == "ARROWUP" || key == "W") {
+                    if (nums[selected - 1] < 9) {
+                        nums[selected - 1]++;
+                        $(`#num${selected}`).text(nums[selected - 1]);
+                        playSelectSound();
+                    } else if (nums[selected - 1] == 9) {
+                        nums[selected - 1] = 0;
+                        $(`#num${selected}`).text(nums[selected - 1]);
+                        playSelectSound();
+                    }
+                } else if (key == "ARROWDOWN" || key == "S") {
+                    if (nums[selected - 1] > 0) {
+                        nums[selected - 1]--;
+                        $(`#num${selected}`).text(nums[selected - 1]);
+                        playSelectSound();
+                    } else if (nums[selected - 1] == 0) {
+                        nums[selected - 1] = 9;
+                        $(`#num${selected}`).text(nums[selected - 1]);
+                        playSelectSound();
+                    }
                 }
             }
         }
