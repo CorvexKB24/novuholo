@@ -13,9 +13,23 @@
 
 <body>
     <div id="scene">
+        <div id="ui">
+            <div class="buttons clickable" id="act" onclick="triggerCode()"></div>
+            <div class="buttons clickable" id="arrowup" onclick="triggerChangeNumber('up')"></div>
+            <div class="buttons clickable" id="arrowdown" onclick="triggerChangeNumber('down')"></div>
+        </div>
+
         <div id="code">
-            <p><span id="num1" class="selected">0</span><span id="num2">0</span><span id="num3">0</span><span
-                    id="num4">0</span></p>
+            <img id="arrows" src="../../img/arrows.png">
+
+            <p>
+                <span id="num1" class="clickable selected" onclick="changeSelection(1)">0</span>
+                <span id="num2" class="clickable" onclick="changeSelection(2)">0</span>
+                <span id="num3" class="clickable" onclick="changeSelection(3)">0</span>
+                <span id="num4" class="clickable" onclick="changeSelection(4)">0</span>
+            </p>
+
+            <img id="button" src="../../img/button.png">
         </div>
 
         <div id="dialoguetext">

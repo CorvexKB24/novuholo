@@ -14,6 +14,11 @@ body {
     height: 100%;
     background-color: black;
     color: white;
+    cursor: url("../../img/hacker_cursor.png"), auto;
+}
+
+.clickable:hover {
+    cursor: url("../../img/hacker_cursor_c.png"), auto;
 }
 
 #scene {
@@ -84,6 +89,45 @@ span {
 
     -webkit-text-stroke: 5px #000;
     paint-order: stroke fill;
+}
 
+#arrows,
+#button {
+    height: 215px;
+}
 
+#arrows {
+    margin-left: 10px;
+}
+
+#button {
+    margin-right: 7px;
+}
+
+.buttons {
+    /* border: 5px rgb(255, 0, 183) solid; */
+    position: absolute;
+    transform: translateX(-50%);
+    user-select: none;
+}
+
+#act {
+    left: 1300px;
+    width: 133px;
+    height: 116px;
+    top: 477px;
+}
+
+#arrowdown {
+    left: 592px;
+    width: 94px;
+    height: 73px;
+    top: 558px;
+}
+
+#arrowup {
+    left: 592px;
+    width: 94px;
+    height: 73px;
+    top: 438px;
 }

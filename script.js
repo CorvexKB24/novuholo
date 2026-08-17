@@ -1,4 +1,6 @@
-// v.0.7
+// v.0.8
+// NO ABRAS ESTE CÓDIGO PARA BUSCAR LOS SECRETOS, NO SEAS TRAMPOSO QUE LE QUITA LA GRACIA
+// porfi :(
 
 const html = document.documentElement;
 const DESIGN_WIDTH = 1920;
@@ -66,6 +68,10 @@ var id_dialogue = 1;
 var id_art = 1;
 var heartSelected = 0;
 var LOVE = 0;
+var typingTimeoutId = null;
+var typingBox = null;
+var typingFullText = null;
+var typingOnComplete = null;
 
 window.addEventListener("resize", resizeScene);
 window.addEventListener("resize", resizeEnterMenu);
@@ -840,25 +846,26 @@ function textTyping(textbox, dialogue, soundNeeded, i = 0, onComplete = null) {
     if (i === 0) {
         textbox.textContent = "";
         talking = true;
+        typingBox = textbox;
+        typingFullText = dialogue;
+        typingOnComplete = onComplete;
     }
 
-    if (dialogue[i] != " " && dialogue[i] != "." && dialogue[i] != "," && dialogue[i] != "?" && dialogue[i] != "¿" && dialogue[i] != "!" && dialogue[i] != "¡" && dialogue[i] != "'") {
-        if (soundNeeded == "text") {
-            playTextsound();
-        } else if (soundNeeded == "talk") {
-            playTalksound();
-        }
+    if (dialogue[i] != " " && dialogue[i] != "." /* ...unchanged... */) {
+        if (soundNeeded == "text") playTextsound();
+        else if (soundNeeded == "talk") playTalksound();
     }
     textbox.textContent += dialogue[i];
 
     if (i === dialogue.length - 1) {
         talking = false;
         id_dialogue++;
+        typingBox = null;
         if (onComplete) onComplete();
         return;
     }
 
-    setTimeout(() => textTyping(textbox, dialogue, soundNeeded, i + 1, onComplete), 50);
+    typingTimeoutId = setTimeout(() => textTyping(textbox, dialogue, soundNeeded, i + 1, onComplete), 50);
 }
 
 function resizeScene() {
@@ -1037,6 +1044,8 @@ $(function () {
                 openInfo();
             } else if (key == "L") {
                 checkAndChangeLanguage();
+            } else if (key == "X") {
+                skipTyping();
             }
 
             if (inTalkMenu == false) {
@@ -1779,3 +1788,29 @@ function openInfo() {
         }
     }
 }
+
+function skipTyping() {
+    if (talking == true && typingBox != null) {
+        clearTimeout(typingTimeoutId);
+        typingBox.textContent = typingFullText;
+        talking = false;
+        id_dialogue++;
+
+        const cb = typingOnComplete;
+        typingBox = null;
+        if (cb) cb();
+    }
+}
+
+function dialogueBoxClicked() {
+    if (inConversation == true) {
+        if (talking == true) {
+            $(document).trigger($.Event("keydown", { key: "X" }))
+        } else {
+            $(document).trigger($.Event("keydown", { key: " " }));
+        }
+    }
+}
+
+dialoguetext_b.addEventListener("click", dialogueBoxClicked);
+normalDialogue.addEventListener("click", dialogueBoxClicked);

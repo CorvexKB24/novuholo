@@ -1,9 +1,13 @@
+// NO ABRAS ESTE CÓDIGO PARA BUSCAR LOS SECRETOS, NO SEAS TRAMPOSO QUE LE QUITA LA GRACIA
+// porfi :(
+
 const html = document.documentElement;
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
 
 const dialogue = document.getElementById("dialogue");
 const codeBox = document.getElementById("code");
+const uiZone = document.getElementById("ui");
 
 const lang = {
     1: "en",
@@ -142,7 +146,7 @@ const dialogues = {
         en: {
             1: { text: ". . .", img: "bombillo_5.gif" },
             2: { text: "¿Sabes lo que significa o has conseguido este número en alguna parte. . .?", img: "bombillo_6.gif" },
-            3: { text: "¿. . .y has pensado \"¡¡¡Eh, voy a probarlo!!! ¡¡¡Quizá es el correcto!!!\"?", img: "bombillo_8.gif" },
+            3: { text: "¿. . .y has pensado: ¡¡¡Eh, voy a probarlo!!! ¡¡¡Quizá es el correcto!!!...?", img: "bombillo_8.gif" },
             4: { text: "Mal rollete colega. Que a veces tienen significado.", img: "bombillo_11.gif" },
             5: { text: "Y estoy seguro de que tú no lo conoces.", img: "bombillo_1.gif" },
             6: { text: "Ni falta que hace, está bien como está.", img: "bombillo.gif" }
@@ -151,7 +155,7 @@ const dialogues = {
         es: {
             1: { text: ". . .", img: "bombillo_5.gif" },
             2: { text: "¿Sabes lo que significa o has conseguido este número en alguna parte. . .?", img: "bombillo_6.gif" },
-            3: { text: "¿. . .y has pensado \"Eh, voy a probarlo!!! Quizá es el correcto!!!\"?", img: "bombillo_8.gif" },
+            3: { text: "¿. . .y has pensado: ¡¡¡Eh, voy a probarlo!!! ¡¡¡Quizá es el correcto!!!...?", img: "bombillo_8.gif" },
             4: { text: "Mal rollete colega. Que a veces tienen significado.", img: "bombillo_11.gif" },
             5: { text: "Y estoy seguro de que tú no lo conoces.", img: "bombillo_1.gif" },
             6: { text: "Ni falta que hace, está bien cómo está.", img: "bombillo.gif" }
@@ -359,11 +363,19 @@ $(function () {
                         $(`#num${selected}`).removeClass("selected");
                         selected--;
                         $(`#num${selected}`).addClass("selected");
+                    } else {
+                        $(`#num${selected}`).removeClass("selected");
+                        selected = 4;
+                        $(`#num${selected}`).addClass("selected");
                     }
                 } else if (key == "ARROWRIGHT" || key == "D") {
                     if (selected < 4) {
                         $(`#num${selected}`).removeClass("selected");
                         selected++;
+                        $(`#num${selected}`).addClass("selected");
+                    } else {
+                        $(`#num${selected}`).removeClass("selected");
+                        selected = 1;
                         $(`#num${selected}`).addClass("selected");
                     }
                 }
@@ -397,6 +409,8 @@ $(function () {
                 introducedcode = `${nums[0]}${nums[1]}${nums[2]}${nums[3]}`;
                 playSelectSound();
                 codeBox.style.display = "none";
+                uiZone.style.display = "none";
+
 
                 if (introducedcode == correctCode) {
                     id_convo = 2;
@@ -494,4 +508,26 @@ function download() {
     }
 
     a.click();
+}
+
+function changeSelection(selection) {
+    $(`#num${selected}`).removeClass("selected");
+    selected = selection;
+    $(`#num${selected}`).addClass("selected");
+}
+
+function triggerCode() {
+    if (inConversation == false) {
+        $(document).trigger($.Event("keydown", { key: "Z" }))
+    }
+}
+
+function triggerChangeNumber(type) {
+    if (inConversation == false) {
+        if (type == "down") {
+            $(document).trigger($.Event("keydown", { key: "ARROWDOWN" }))
+        } else {
+            $(document).trigger($.Event("keydown", { key: "ARROWUP" }))
+        }
+    }
 }

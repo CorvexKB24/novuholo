@@ -1,3 +1,6 @@
+// NO ABRAS ESTE CÓDIGO PARA BUSCAR LOS SECRETOS, NO SEAS TRAMPOSO QUE LE QUITA LA GRACIA
+// porfi :(
+
 var alreadyPlaying = false;
 
 function getLangFromURL() {

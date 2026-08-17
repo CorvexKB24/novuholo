@@ -1,3 +1,6 @@
+// NO ABRAS ESTE CÓDIGO PARA BUSCAR LOS SECRETOS, NO SEAS TRAMPOSO QUE LE QUITA LA GRACIA
+// porfi :(
+
 const html = document.documentElement;
 const DESIGN_WIDTH = 1920;
 const DESIGN_HEIGHT = 1080;
@@ -19,6 +22,11 @@ var recievedEgg = false;
 var inConversation = false;
 var readingSign = false;
 var id_dialogue = 0;
+var talking = false;
+var typingTimeoutId = null;
+var typingBox = null;
+var typingFullText = null;
+var typingOnComplete = null;
 
 const IMAGE_PATHS = [
     "../../img/egg_zone_bg_noSign.png",
@@ -223,7 +231,7 @@ const dialogues = {
             15: "(Pero decides guardártelo para ti.)",
             16: "(El hombre te ofrece algo.)",
             17: "(Has recibido un Huevo.)",
-            18: "(Al ver tu cara, el hombre decide retirártelo y con un movimiento de manos...)" ,
+            18: "(Al ver tu cara, el hombre decide retirártelo y con un movimiento de manos...)",
             19: "...el Huevo desaparece.)",
             20: "(El hombre sonríe. Señala su palma vacía y luego te señala a ti...)",
             21: "(...y al cupón que, sin darte cuenta, portabas en tu mano todo este tiempo.) ",
@@ -283,6 +291,9 @@ function textTyping(textbox, dialogue, soundNeeded, i = 0, onComplete = null) {
     if (i === 0) {
         textbox.textContent = "";
         talking = true;
+        typingBox = textbox;
+        typingFullText = dialogue;
+        typingOnComplete = onComplete;
     }
 
     if (dialogue[i] != " " && dialogue[i] != "." && dialogue[i] != "," && dialogue[i] != "?" && dialogue[i] != "¿" && dialogue[i] != "!" && dialogue[i] != "¡" && dialogue[i] != "'") {
@@ -299,13 +310,13 @@ function textTyping(textbox, dialogue, soundNeeded, i = 0, onComplete = null) {
         if (inConversation == false) {
             setTimeout(() => hideDialogue(), 1500);
         }
-
+        typingBox = null;
         if (onComplete) onComplete();
         talking = false;
         return;
     }
 
-    setTimeout(() => textTyping(textbox, dialogue, soundNeeded, i + 1, onComplete), 50);
+    typingTimeoutId = setTimeout(() => textTyping(textbox, dialogue, soundNeeded, i + 1, onComplete), 50);
 }
 
 let posX = 394;
@@ -372,7 +383,7 @@ function updateMovement(timestamp) {
 function moveOutdoorX(direction) {
     const oldX = posX;
     let target = posX + direction * SPEED;
-    target = Math.min(Math.max(target, 150), 1770); 
+    target = Math.min(Math.max(target, 150), 1770);
 
     const gateOpen = posY >= 370 && posY <= 560;
 
@@ -440,15 +451,15 @@ function moveEggRoomX(direction) {
     const treeYBand = posY > 466 && posY <= 504;
 
     if (direction > 0) {
-        target = Math.min(target, 1866); 
+        target = Math.min(target, 1866);
 
         if (treeYBand && posX <= 852 && target > 852) {
-            target = 852; 
+            target = 852;
         }
     } else {
-        target = Math.max(target, 62); 
+        target = Math.max(target, 62);
         if (treeYBand && posX >= 1064 && target < 1064) {
-            target = 1064; 
+            target = 1064;
         }
     }
 
@@ -464,13 +475,13 @@ function moveEggRoomY(direction) {
     const treeXBand = posX > 852 && posX <= 1064;
 
     if (direction < 0) {
-        target = Math.max(target, 88); 
+        target = Math.max(target, 88);
         if (treeXBand && posY >= 504 && target < 504) {
-            target = 504; 
+            target = 504;
         }
     } else {
         if (treeXBand && posY <= 466 && target > 466) {
-            target = 466; 
+            target = 466;
         }
         if (!recievedEgg) {
             target = Math.min(target, 964);
@@ -600,6 +611,10 @@ $(function () {
         var key = (e.key).toUpperCase();
 
         if (started == true) {
+            if (key == "X") {
+                skipTyping();
+            }
+
             if (inEggRoom == false) {
                 if (talking == false) {
                     if (readingSign == false) {
@@ -819,3 +834,32 @@ function checkInBetween() {
         showBinoculars();
     }
 }
+
+function skipTyping() {
+    if (talking == true && typingBox != null) {
+        clearTimeout(typingTimeoutId);
+        typingBox.textContent = typingFullText;
+        id_dialogue++;
+
+        if (inConversation == false) {
+            setTimeout(() => hideDialogue(), 1500);
+        }
+
+        const cb = typingOnComplete;
+        typingBox = null;
+        talking = false;
+        if (cb) cb();
+    }
+}
+
+function gasterBoxClicked() {
+    if (inConversation == true) {
+        if (talking == true) {
+            skipTyping();
+        } else {
+            $(document).trigger($.Event("keydown", { key: " " }));
+        }
+    }
+}
+
+text.addEventListener("click", gasterBoxClicked);
