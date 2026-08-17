@@ -35,7 +35,124 @@ const ASSETS_TO_PRELOAD = [
     "img/shop/novu_looking_window.gif",
     "img/shop/novu_looking_traveler.gif",
     "img/shop/db_shop.png",
-    "img/shop/db_shop_b.png"
+    "img/shop/db_shop_b.png",
+    "img/art/novu_art (1).png",
+    "img/art/novu_art (2).png",
+    "img/art/novu_art (3).png",
+    "img/art/novu_art (4).png",
+    "img/art/novu_art (5).png",
+    "img/art/novu_art (6).png",
+    "img/art/novu_art (7).png",
+    "img/art/novu_art (8).png",
+    "img/art/novu_art (9).png",
+    "img/art/novu_art (10).png",
+    "img/art/novu_art (11).png",
+    "img/art/novu_art (12).png",
+    "img/art/novu_art (13).png",
+    "img/art/novu_art (14).png",
+    "img/art/novu_art (15).png",
+    "img/art/novu_art (16).png",
+    "img/art/novu_art (17).png",
+    "img/art/novu_art (18).png",
+    "img/art/novu_art (19).png",
+    "img/art/novu_art (20).png",
+    "img/art/novu_art (21).png",
+    "img/art/novu_art (22).png",
+    "img/art/novu_art (23).png",
+    "img/art/novu_art (24).png",
+    "img/art/novu_art (25).png",
+    "img/art/novu_art (26).png",
+    "img/art/novu_art (27).png",
+    "img/art/novu_art (28).png",
+    "img/art/novu_art (29).png",
+    "img/art/novu_art (30).png",
+    "img/art/novu_art (31).png",
+    "img/art/novu_art (32).png",
+    "img/art/novu_art (33).png",
+    "img/art/novu_art (34).png",
+    "img/art/novu_art (35).png",
+    "img/art/novu_art (36).png",
+    "img/art/novu_art (37).png",
+    "img/art/novu_art (38).png",
+    "img/art/novu_art (39).png",
+    "img/art/novu_art (40).png",
+    "img/art/novu_art (41).png",
+    "img/art/novu_art (42).png",
+    "img/art/novu_art (43).png",
+    "img/art/novu_art (44).png",
+    "img/art/novu_art (45).png",
+    "img/art/novu_art (46).png",
+    "img/art/novu_art (47).png",
+    "img/art/novu_art (48).png",
+    "img/art/novu_art (49).png",
+    "img/art/novu_art (50).png",
+    "img/art/novu_art (51).png",
+    "img/art/novu_art (52).png",
+    "img/art/novu_art (53).png",
+    "img/art/novu_art (54).png",
+    "img/art/novu_art (55).png",
+    "img/art/novu_art (56).png",
+    "img/art/novu_art (57).png",
+    "img/art/novu_art (58).png",
+    "img/art/novu_art (59).png",
+    "img/art/novu_art (60).png",
+    "img/art/novu_art (61).png",
+    "img/art/novu_art (62).png",
+    "img/art/novu_art (63).png",
+    "img/art/novu_art (64).png",
+    "img/art/novu_art (65).png",
+    "img/art/novu_art (66).png",
+    "img/art/novu_art (67).png",
+    "img/art/novu_art (68).png",
+    "img/art/novu_art (69).png",
+    "img/art/novu_art (70).png",
+    "img/art/novu_art (71).png",
+    "img/art/novu_art (72).png",
+    "img/art/novu_art (73).png",
+    "img/art/novu_art (74).png",
+    "img/art/novu_art (75).png",
+    "img/art/novu_art (76).png",
+    "img/art/novu_art (77).png",
+    "img/art/novu_art (78).png",
+    "img/art/novu_art (79).png",
+    "img/art/novu_art (80).png",
+    "img/art/novu_art (81).png",
+    "img/art/novu_art (82).png",
+    "img/art/novu_art (83).png",
+    "img/art/novu_art (84).png",
+    "img/art/novu_art (85).png",
+    "img/art/novu_art (86).png",
+    "img/art/novu_art (87).png",
+    "img/art/novu_art (88).png",
+    "img/art/novu_art (89).png",
+    "img/art/novu_art (90).png",
+    "img/art/novu_art (91).png",
+    "img/art/novu_art (92).png",
+    "img/art/novu_art (93).png",
+    "img/art/novu_art (94).png",
+    "img/art/novu_art (95).png",
+    "img/art/novu_art (96).png",
+    "img/art/novu_art (97).png",
+    "img/art/novu_art (98).png",
+    "img/art/novu_art (99).png",
+    "img/art/novu_art (100).png",
+    "img/art/novu_art (101).png",
+    "img/art/novu_art (102).png",
+    "img/art/novu_art (103).png",
+    "img/art/novu_art (104).png",
+    "img/art/novu_art (105).png",
+    "img/art/novu_art (106).png",
+    "img/art/novu_art (107).png",
+    "img/art/novu_art (108).png",
+    "img/art/novu_art (109).png",
+    "img/art/novu_art (110).png",
+    "img/art/novu_art (111).png",
+    "img/art/novu_art (112).png",
+    "img/art/novu_art (113).png",
+    "img/comms/comms (1).png",
+    "img/comms/comms (2).png",
+    "img/comms/comms (3).png",
+    "img/comms/comms (4).png"
 ];
 
 function preloadAssets(list) {
@@ -1076,51 +1193,6 @@ $(function () {
                                     }
                                 }
                             }
-                        } else if (artGallery == true) {
-                            if (commissions == false) {
-                                if (key == "ARROWLEFT" || key == "A") {
-                                    if (id_art <= 113 && id_art > 1) {
-                                        id_art--;
-                                        console.log(`artDisplayed: ${id_art}`)
-
-                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
-                                    } else {
-                                        id_art = 113;
-                                        console.log(`artDisplayed: ${id_art}`)
-
-                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
-                                    }
-                                } else if (key == "ARROWRIGHT" || key == "D") {
-                                    if (id_art >= 1 && id_art < 113) {
-                                        id_art++;
-                                        console.log(`artDisplayed: ${id_art}`)
-
-                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
-                                    } else {
-                                        id_art = 1;
-                                        console.log(`artDisplayed: ${id_art}`)
-
-                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
-                                    }
-                                }
-                            } else if (commissions == true) {
-                                if (key == "ARROWLEFT" || key == "A") {
-                                    if (id_art <= 4 && id_art > 1) {
-                                        id_art--;
-                                        console.log(id_art)
-
-                                        changeArtSrc(`img/comms/comms (${id_art}).png`);
-                                    }
-
-                                } else if (key == "ARROWRIGHT" || key == "D") {
-                                    if (id_art >= 1 && id_art < 4) {
-                                        id_art++;
-                                        console.log(id_art)
-
-                                        changeArtSrc(`img/comms/comms (${id_art}).png`);
-                                    }
-                                }
-                            }
                         }
                     } else if (inConversation == true) {
                         if (id_convo == 1) {
@@ -1342,6 +1414,53 @@ $(function () {
                                         inConversation = false;
                                         changeNovuFace();
                                         textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text");
+                                    }
+                                }
+                            }
+                        }
+
+                        if (artGallery == true) {
+                            if (commissions == false) {
+                                if (key == "ARROWLEFT" || key == "A") {
+                                    if (id_art <= 113 && id_art > 1) {
+                                        id_art--;
+                                        console.log(`artDisplayed: ${id_art}`)
+
+                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
+                                    } else {
+                                        id_art = 113;
+                                        console.log(`artDisplayed: ${id_art}`)
+
+                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
+                                    }
+                                } else if (key == "ARROWRIGHT" || key == "D") {
+                                    if (id_art >= 1 && id_art < 113) {
+                                        id_art++;
+                                        console.log(`artDisplayed: ${id_art}`)
+
+                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
+                                    } else {
+                                        id_art = 1;
+                                        console.log(`artDisplayed: ${id_art}`)
+
+                                        changeArtSrc(`img/art/novu_art (${id_art}).png`);
+                                    }
+                                }
+                            } else if (commissions == true) {
+                                if (key == "ARROWLEFT" || key == "A") {
+                                    if (id_art <= 4 && id_art > 1) {
+                                        id_art--;
+                                        console.log(id_art)
+
+                                        changeArtSrc(`img/comms/comms (${id_art}).png`);
+                                    }
+
+                                } else if (key == "ARROWRIGHT" || key == "D") {
+                                    if (id_art >= 1 && id_art < 4) {
+                                        id_art++;
+                                        console.log(id_art)
+
+                                        changeArtSrc(`img/comms/comms (${id_art}).png`);
                                     }
                                 }
                             }
