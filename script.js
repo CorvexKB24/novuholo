@@ -356,7 +356,7 @@ const conversations = {
             11: "(I guess you just don't need to zoom in.)",
             12: "(Maybe if this dialogue didn't exist, they could say it verbally.)",
             13: "(It's a shame. . . If only someone could explain it to you.)",
-            14: "(Btw, press SPACE when you're done.)"
+            14: "(Btw, skip this dialogue when you're done.)"
         },
 
         es: {
@@ -367,13 +367,13 @@ const conversations = {
             5: "(El muñequín Teru Teru te enseña su MI ARTE.)",
             6: "(Para explicarte cómo cambiar la imagen, intenta gesticular con las manos. . .)",
             7: "(Tras eso, se da cuenta de que no tiene manos.)",
-            8: "Nunca sabrás que puedes cambiar las imágenes con las flechas.",
+            8: "(Nunca sabrás que puedes cambiar las imágenes con las flechas.)",
             9: "(¡Acto seguido! Intenta usar sus brazos para explicarte que si haces clic en la. . .)",
             10: "(Oh, ya. . . Para eso estaría bien tener brazos. . .)",
             11: "(Supongo que tampoco te hace falta hacer zoom.)",
             12: "(En retrospectiva, si este diálogo no existiera, te lo habría explicado verbalmente.)",
             13: "(Pues vaya. . . Una lástima que nadie pueda explicártelo.)",
-            14: "(Por cierto, pulsa ESPACIO cuando hayas terminado.)"
+            14: "(Por cierto, pasa este diálogo cuando hayas terminado.)"
         }
     },
     3: {
@@ -388,7 +388,7 @@ const conversations = {
             8: "Don't worry. We all had been in your situation. No pressure.",
             9: "Anyways, if you want to buy something, you better talk me on other places.",
             10: "I heard that Discord may be cool.",
-            11: "(Press SPACE when you're done.)"
+            11: "Anyways, skip this dialogue when you're done."
         },
 
         es: {
@@ -402,7 +402,7 @@ const conversations = {
             8: "Tranqui. Todos hemos estado en esa situación. Sin presiones.",
             9: "De todas formas, si quieres comprar algo, es mejor hablarme por otros sitios.",
             10: "Me han dicho que Discord mola, no se traga los mensajes.",
-            11: "(Pulsa ESPACIO cuando hayas terminado de echar un vistazo.)"
+            11: "En fin, pasa este diálogo cuando hayas terminado de echar un vistazo."
         }
     },
     4: {
@@ -851,7 +851,7 @@ function textTyping(textbox, dialogue, soundNeeded, i = 0, onComplete = null) {
         typingOnComplete = onComplete;
     }
 
-    if (dialogue[i] != " " && dialogue[i] != "." /* ...unchanged... */) {
+    if (dialogue[i] != " " && dialogue[i] != ".") {
         if (soundNeeded == "text") playTextsound();
         else if (soundNeeded == "talk") playTalksound();
     }
@@ -1102,27 +1102,6 @@ $(function () {
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     }
-                                } else if (key == " ") {
-                                    if (isNovuStillTalking == false) {
-                                        id_convo = 0;
-                                        id_dialogue = 1;
-                                        inConversation = false;
-                                        artGallery = false;
-                                        commissions = false;
-                                        id_art = 1;
-
-                                        art_displayed.classList.remove("clickable");
-                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
-
-                                        art.style.opacity = "0";
-                                        setEasterEggsEnabled(true);
-                                        setNovuBack();
-                                        changeNovuFace();
-                                        heartSelected = 0;
-                                        artZoomOverlay.classList.remove("active");
-
-                                        showHeart(heartSelected);
-                                    }
                                 }
                             } else if (commissions == true) {
                                 if (key == "ARROWLEFT" || key == "A") {
@@ -1139,27 +1118,6 @@ $(function () {
                                         console.log(id_art)
 
                                         changeArtSrc(`img/comms/comms (${id_art}).png`);
-                                    }
-                                } else if (key == " ") {
-                                    if (isNovuStillTalking == false) {
-                                        id_convo = 0;
-                                        id_dialogue = 1;
-                                        inConversation = false;
-                                        artGallery = false;
-                                        commissions = false;
-                                        id_art = 1;
-
-                                        art_displayed.classList.remove("clickable");
-                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
-
-                                        art.style.opacity = "0";
-                                        setEasterEggsEnabled(true);
-                                        setNovuBack();
-                                        changeNovuFace();
-                                        heartSelected = 0;
-                                        artZoomOverlay.classList.remove("active");
-
-                                        showHeart(heartSelected);
                                     }
                                 }
                             }
@@ -1184,8 +1142,7 @@ $(function () {
                                 if (talking == false) {
                                     if (id_dialogue < 5) {
                                         textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "talk");
-                                    } else {
-                                        inConversation = false;
+                                    } else if (id_dialogue == 5) {
                                         id_art = 1;
                                         artbox.style.display = "flex";
                                         artGallery = true;
@@ -1195,7 +1152,26 @@ $(function () {
                                         setNovuAside()
                                         $(`#heart${heartSelected}`).addClass("notSelected");
                                         isNovuStillTalking = true;
-                                        autoPlay_artScene();
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text");
+
+                                    } else if (id_dialogue == 15) {
+                                        artGallery = false;
+                                        commissions = false;
+                                        id_convo = 0;
+                                        id_dialogue = 1;
+                                        inConversation = false;
+                                        isNovuStillTalking = false;
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
+                                        art_displayed.removeAttribute("onclick")
+                                        art_displayed.classList.remove("clickable");
+                                        art.style.opacity = "0";
+                                        setEasterEggsEnabled(true);
+                                        setNovuBack();
+                                        changeNovuFace();
+                                        heartSelected = 0;
+                                        showHeart(heartSelected);
+                                    } else {
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text");
                                     }
                                 }
                             }
@@ -1204,8 +1180,7 @@ $(function () {
                                 if (talking == false) {
                                     if (id_dialogue < 2) {
                                         textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "talk");
-                                    } else {
-                                        inConversation = false;
+                                    } else if (id_dialogue == 2) {
                                         id_art = 1;
                                         artbox.style.display = "flex";
                                         artGallery = true;
@@ -1215,7 +1190,25 @@ $(function () {
                                         setNovuAside()
                                         $(`#heart${heartSelected}`).addClass("notSelected");
                                         isNovuStillTalking = true;
-                                        autoPlay_commsScene();
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "talk");
+                                    } else if (id_dialogue == 12) {
+                                        artGallery = false;
+                                        commissions = false;
+                                        id_convo = 0;
+                                        id_dialogue = 1;
+                                        inConversation = false;
+                                        isNovuStillTalking = false;
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
+                                        art_displayed.removeAttribute("onclick")
+                                        art_displayed.classList.remove("clickable");
+                                        art.style.opacity = "0";
+                                        setEasterEggsEnabled(true);
+                                        setNovuBack();
+                                        changeNovuFace();
+                                        heartSelected = 0;
+                                        showHeart(heartSelected);
+                                    } else {
+                                        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "talk");
                                     }
                                 }
                             }
