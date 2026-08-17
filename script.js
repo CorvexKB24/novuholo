@@ -1165,6 +1165,7 @@ $(function () {
                                         art_displayed.removeAttribute("onclick")
                                         art_displayed.classList.remove("clickable");
                                         art.style.opacity = "0";
+                                        artZoomOverlay.classList.remove("active");
                                         setEasterEggsEnabled(true);
                                         setNovuBack();
                                         changeNovuFace();
@@ -1202,6 +1203,7 @@ $(function () {
                                         art_displayed.removeAttribute("onclick")
                                         art_displayed.classList.remove("clickable");
                                         art.style.opacity = "0";
+                                        artZoomOverlay.classList.remove("active");
                                         setEasterEggsEnabled(true);
                                         setNovuBack();
                                         changeNovuFace();
