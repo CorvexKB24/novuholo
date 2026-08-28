@@ -425,7 +425,10 @@ span {
 #guide_btn,
 #music_btn,
 #info_btn,
-#lang_btn {
+#lang_btn,
+#left_art,
+#right_art,
+#art_btn {
     background-color: black;
     border: 3px solid white;
     position: absolute;
@@ -447,21 +450,18 @@ span {
     top: 2%;
     left: 5%;
     font-size: 70px;
-
 }
 
 #music_btn {
     top: 15%;
     left: 5%;
     font-size: 70px;
-
 }
 
 #info_btn {
     top: 28%;
     left: 5%;
     font-size: 70px;
-
 }
 
 #lang_btn {
@@ -469,6 +469,42 @@ span {
     left: 5%;
 
     font-size: 40px;
+}
+
+#art_btn {
+    top: 54%;
+    left: 5%;
+    font-size: 40px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    img {
+        width: 130px;
+    }
+}
+
+#right_art {
+    transition: opacity 0.5s ease-in-out;
+
+    top: 45%;
+    left: 61%;
+    font-size: 33px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    display: flex;
+}
+
+#left_art {
+    transition: opacity 0.5s ease-in-out;
+
+    top: 45%;
+    left: 58%;
+    font-size: 33px;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    display: flex;
 }
 
 #guide {

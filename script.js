@@ -29,6 +29,9 @@ const normalDialogue = document.getElementById("dialoguetext");
 const info_section = document.getElementById("information");
 const info_icon = document.getElementById("info_icon");
 const PAUSE = 1500;
+const left_art_btn = document.getElementById("left_art");
+const right_art_btn = document.getElementById("right_art");
+const art_btn = document.getElementById("art_btn");
 
 const ASSETS_TO_PRELOAD = [
     "img/shop/shop_background.gif",
@@ -189,6 +192,7 @@ var typingTimeoutId = null;
 var typingBox = null;
 var typingFullText = null;
 var typingOnComplete = null;
+var artGalleryFirstTime = true;
 
 window.addEventListener("resize", resizeScene);
 window.addEventListener("resize", resizeEnterMenu);
@@ -324,7 +328,7 @@ const guide_texts = {
             2: "DOWN",
             3: "LEFT",
             4: "RIGHT",
-            5: "SPACE",
+            5: "X",
             6: "CLICKING THIS TEXT"
         },
         es: {
@@ -332,7 +336,7 @@ const guide_texts = {
             2: "ABAJO",
             3: "IZQUIERDA",
             4: "DERECHA",
-            5: "BARRA ESPACIADORA",
+            5: "X",
             6: "HACER CLIC A ESTE TEXTO"
         }
     },
@@ -342,7 +346,7 @@ const guide_texts = {
             1: "Move the HEART through the options menu",
             2: "Interact with selected option / Next dialogue",
             3: "Move between the different pictures",
-            4: "Leave the picture showcase mode",
+            4: "Skip the text's writting animation",
             5: "Press [G] to open/close guide",
             6: "Press [M] to mute/unmute music",
             7: "Close the guide window (it will suffer)",
@@ -353,7 +357,7 @@ const guide_texts = {
             1: "Mover el CORAZÓN en el menú de opciones",
             2: "Interactuar con la opción señalada / Pasar diálogo",
             3: "Cambiar la imagen mostrada",
-            4: "Salir del modo exposición artística",
+            4: "Saltar la animación de escritura del texto",
             5: "Pulsa [G] para abrir/cerrar la guía",
             6: "Pulsa [M] para activar/desactivar la música",
             7: "Cerrar la ventana (sufrirá)",
@@ -364,7 +368,7 @@ const guide_texts = {
     3: {
         en: {
             1: "* You can use your mouse to navigate",
-            2: "* Clicking with your mouse also works / There are some scenes that autoplay",
+            2: "* Clicking with your mouse also works",
             3: "* Click on a picture to zoom, click anywhere to close it",
             4: "* Or click the ? icon (top left)",
             5: "* Or click the music icon (top left)",
@@ -838,6 +842,16 @@ const conversations = {
             7: "Quizá algún día puedas verle moverse en todo su esplendor.",
             8: "Ese es mi sueño."
         }
+    },
+
+    19: {
+        en: {
+            1: "After taking a look at their artworks, a new button has appeared. . ."
+        },
+
+        es: {
+            1: "Tras ver su arte, un nuevo botón ha aparecido. . ."
+        }
     }
 };
 
@@ -1218,8 +1232,14 @@ $(function () {
                                         id_art = 1;
                                         artbox.style.display = "flex";
                                         artGallery = true;
+                                        left_art_btn.style.display = "flex"
+                                        right_art_btn.style.display = "flex"
                                         art_displayed.classList.add("clickable");
+                                        left_art_btn.classList.add("clickable");
+                                        right_art_btn.classList.add("clickable");
                                         art.style.opacity = "1";
+                                        left_art_btn.style.opacity = "1"
+                                        right_art_btn.style.opacity = "1"
                                         setEasterEggsEnabled(false);
                                         setNovuAside()
                                         $(`#heart${heartSelected}`).addClass("notSelected");
@@ -1229,14 +1249,28 @@ $(function () {
                                     } else if (id_dialogue == 15) {
                                         artGallery = false;
                                         commissions = false;
-                                        id_convo = 0;
-                                        id_dialogue = 1;
+
+                                        if (artGalleryFirstTime == true) {
+                                            id_convo = 19;
+                                            id_dialogue = 1;
+                                            art_btn.classList.add("clickable");
+                                            art_btn.style.opacity = 1;
+                                            artGalleryFirstTime = false;
+                                        } else {
+                                            id_convo = 0;
+                                            id_dialogue = 1;
+                                        }
+
                                         inConversation = false;
                                         isNovuStillTalking = false;
                                         textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
                                         art_displayed.removeAttribute("onclick")
                                         art_displayed.classList.remove("clickable");
+                                        left_art_btn.classList.remove("clickable");
+                                        right_art_btn.classList.remove("clickable");
                                         art.style.opacity = "0";
+                                        left_art_btn.style.opacity = "0"
+                                        right_art_btn.style.opacity = "0"
                                         artZoomOverlay.classList.remove("active");
                                         setEasterEggsEnabled(true);
                                         setNovuBack();
@@ -1257,8 +1291,14 @@ $(function () {
                                         id_art = 1;
                                         artbox.style.display = "flex";
                                         artGallery = true;
+                                        left_art_btn.style.display = "flex"
+                                        right_art_btn.style.display = "flex"
                                         art_displayed.classList.add("clickable");
+                                        left_art_btn.classList.add("clickable");
+                                        right_art_btn.classList.add("clickable");
                                         art.style.opacity = "1";
+                                        left_art_btn.style.opacity = "1"
+                                        right_art_btn.style.opacity = "1"
                                         setEasterEggsEnabled(false);
                                         setNovuAside()
                                         $(`#heart${heartSelected}`).addClass("notSelected");
@@ -1274,7 +1314,11 @@ $(function () {
                                         textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
                                         art_displayed.removeAttribute("onclick")
                                         art_displayed.classList.remove("clickable");
+                                        left_art_btn.classList.remove("clickable");
+                                        right_art_btn.classList.remove("clickable");
                                         art.style.opacity = "0";
+                                        left_art_btn.style.opacity = "0"
+                                        right_art_btn.style.opacity = "0"
                                         artZoomOverlay.classList.remove("active");
                                         setEasterEggsEnabled(true);
                                         setNovuBack();
@@ -1453,11 +1497,21 @@ $(function () {
                                         console.log(id_art)
 
                                         changeArtSrc(`img/comms/comms (${id_art}).png`);
+                                    } else {
+                                        id_art = 4;
+                                        console.log(id_art)
+
+                                        changeArtSrc(`img/comms/comms (${id_art}).png`);
                                     }
 
                                 } else if (key == "ARROWRIGHT" || key == "D") {
                                     if (id_art >= 1 && id_art < 4) {
                                         id_art++;
+                                        console.log(id_art)
+
+                                        changeArtSrc(`img/comms/comms (${id_art}).png`);
+                                    } else {
+                                        id_art = 1;
                                         console.log(id_art)
 
                                         changeArtSrc(`img/comms/comms (${id_art}).png`);
@@ -1928,3 +1982,23 @@ function dialogueBoxClicked() {
 
 dialoguetext_b.addEventListener("click", dialogueBoxClicked);
 normalDialogue.addEventListener("click", dialogueBoxClicked);
+
+function art_right() {
+    $(document).trigger($.Event("keydown", { key: "D" }))
+}
+
+function art_left() {
+    $(document).trigger($.Event("keydown", { key: "A" }));
+}
+
+function openArt() {
+    if (artGalleryFirstTime == false) {
+        if (lang_id == 1) {
+            location.reload();
+            location.href = `htmls/artgallery/artgallery_eng.html`;
+        } else if (lang_id == 2) {
+            location.reload();
+            location.href = `htmls/artgallery/artgallery_es.html`;
+        }
+    }
+}

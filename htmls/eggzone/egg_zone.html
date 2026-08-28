@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nowhere</title>
+    <title>?????</title>
     <link rel="stylesheet" href="style.css">
     <script src="../../jquery.js" defer></script>
     <script src="script.js" defer></script>
@@ -14,7 +14,32 @@
 <body>
     <div id="eggzone">
         <div id="scene">
-            <img id="char_novu" src="../../img/sprites/spr_nov_lw_down_1.png" onclick="start()" draggable="false">
+            <div id="warn_screen">
+                <img id="warning" src="" draggable="false">
+                <div class="warn_btn clickable" id="computer" onclick="setDevice(1)"></div>
+                <div class="warn_btn clickable" id="smartfridge" onclick="setDevice(2)"></div>
+            </div>
+
+            <div id="eltiovyn">
+                <img id="img_btns" src="../../img/eltiovyn.png" draggable="false">
+
+                <div class="port" id="up" onmousedown="tiovynStart('up')" onmouseup="tiovynEnd('up')"
+                    ontouchstart="tiovynStart('up')" ontouchend="tiovynEnd('up')"></div>
+
+                <div class="port" id="down" onmousedown="tiovynStart('down')" onmouseup="tiovynEnd('down')"
+                    ontouchstart="tiovynStart('down')" ontouchend="tiovynEnd('down')"></div>
+
+                <div class="port" id="left" onmousedown="tiovynStart('left')" onmouseup="tiovynEnd('left')"
+                    ontouchstart="tiovynStart('left')" ontouchend="tiovynEnd('left')"></div>
+
+                <div class="port" id="right" onmousedown="tiovynStart('right')" onmouseup="tiovynEnd('right')"
+                    ontouchstart="tiovynStart('right')" ontouchend="tiovynEnd('right')"></div>
+
+                <div class="port" id="key_x" onclick="tiovyn('x')"></div>
+                <div class="port" id="key_z" onclick="tiovyn('z')"></div>
+            </div>
+
+            <img id="char_novu" class="clickable" src="../../img/sprites/spr_nov_lw_down_1.png" onclick="start()" draggable="false">
             <img id="tree" src="../../vid/just_a_tree.gif" draggable="false">
 
             <div id="dialoguetext">

@@ -12,7 +12,7 @@
 </head>
 
 <!-- NO ABRAS ESTE CÓDIGO PARA BUSCAR LOS SECRETOS, NO SEAS TRAMPOSO QUE LE QUITA LA GRACIA -->
-<!-- porfi :( )-->
+<!-- porfi :( -->
 
 <body>
     <div id="enter_menu">
@@ -44,8 +44,8 @@
                     <p id="guide_desc3">Move between the different pictures</p>
                     <p class="sidenote" id="guide_side3">* Click on a picture to zoom, click again to close it</p>
                     <br>
-                    <p>[<span id="guide_space2">SPACE</span>]</p>
-                    <p id="guide_desc4">Leave the picture showcase mode</p>
+                    <p>[<span id="guide_space2">X</span>]</p>
+                    <p id="guide_desc4">Skip the text's writting animation</p>
                     <br>
                     <p class="title" id="guide_title3">Others:</p>
                     <p id="guide_desc5">Press [G] to open/close guide</p>
@@ -107,6 +107,14 @@
                 <img id="art_displayed" src="img/art/novu_art (1).png" draggable="false">
             </div>
 
+            <div class="clickable" id="right_art" onclick="art_right()">
+                <p id="info_icon">&gt;</p>
+            </div>
+
+            <div class="clickable" id="left_art" onclick="art_left()">
+                <p id="info_icon">&lt;</p>
+            </div>
+
             <div id="art_zoom_overlay">
                 <img id="art_zoom_img" src="" draggable="false">
             </div>
@@ -162,6 +170,11 @@
 
             <div class="clickable" id="lang_btn" onclick="checkAndChangeLanguage()">
                 <p id="lang_icon">ENG</p>
+            </div>
+
+            <div class="" id="art_btn">
+                <img id="art_btn_img" onclick="openArt()" src="img/shop/art_icon.png"
+                    draggable="false">
             </div>
 
             <div id="options">

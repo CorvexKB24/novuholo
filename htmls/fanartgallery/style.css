@@ -1,0 +1,115 @@
+@font-face {
+    font-family: '8Bit_Operator';
+    src: url(../../fonts/8bitOperatorPlus-Bold.ttf)
+}
+
+* {
+    font-family: "8Bit_Operator";
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+    cursor: url("../../img/hacker_cursor.png"), auto;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: black;
+
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+
+#video_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#video_fondo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#web_body {
+    background-color: rgb(140, 141, 141);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+#web_body img {
+    max-width: 100%;
+    display: block;
+}
+
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 1rem;
+}
+
+.hueco {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.hueco.clickable {
+    cursor: pointer;
+}
+
+.imagen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagen img {
+    min-height: 0;
+    width: 100%;
+    object-fit: contain;
+}
+
+.autor {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    #galeria {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.clickable:hover {
+    cursor: url("../../img/hacker_cursor_c.png"), auto;
+}
+
+h1 {
+    color: white;
+    font-size: 70px;
+}

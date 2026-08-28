@@ -13,6 +13,12 @@ html,
 body {
     height: 100%;
     background-color: black;
+    cursor: url("../../img/hacker_cursor.png"), auto;
+
+}
+
+.clickable:hover {
+    cursor: url("../../img/hacker_cursor_c.png"), auto;
 }
 
 #eggzone {
@@ -143,4 +149,86 @@ body {
     top: 63%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+#eltiovyn {
+    display: none;
+}
+
+.port,
+.warn_btn {
+    /* border: 5px rgb(255, 0, 183) solid; */
+    position: absolute;
+    transform: translateX(-50%);
+    user-select: none;
+
+    z-index: 199;
+}
+
+#computer {
+    z-index: 1226;
+    top: 51%;
+    left: 31%;
+    width: 500px;
+    height: 343px;
+}
+
+#smartfridge {
+    z-index: 1227;
+    top: 51%;
+    left: 69%;
+    width: 500px;
+    height: 343px;
+}
+
+#warning {
+    position: absolute;
+    z-index: 1225;
+}
+
+#img_btns {
+    position: absolute;
+    z-index: 0;
+}
+
+#up {
+    top: 64.5%;
+    left: 10.5%;
+    width: 100px;
+    height: 120px;
+}
+
+#down {
+    top: 86%;
+    left: 10.5%;
+    width: 100px;
+    height: 120px;
+}
+
+#left {
+    top: 76.5%;
+    left: 4.4%;
+    width: 112px;
+    height: 93px;
+}
+
+#right {
+    top: 76.5%;
+    left: 16.7%;
+    width: 115px;
+    height: 93px;
+}
+
+#key_x {
+    top: 63%;
+    left: 93.6%;
+    width: 181px;
+    height: 180px;
+}
+
+#key_z {
+    top: 80%;
+    left: 84.7%;
+    width: 181px;
+    height: 180px;
 }

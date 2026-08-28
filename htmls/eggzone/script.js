@@ -15,6 +15,10 @@ const textbox = document.getElementById("dialoguebox_b");
 const text = document.getElementById("dialoguetext_b");
 const gaster = document.getElementById("dialogue_b");
 
+const eltiovyn = document.getElementById("eltiovyn");
+const warning = document.getElementById("warning");
+const warn_screen = document.getElementById("warn_screen");
+
 var started = false;
 var inBetween = 0;
 var inEggRoom = false;
@@ -134,6 +138,8 @@ if (lang_id == 2) {
 } else {
     document.title = "Nowhere"
 }
+
+warning.src = `../../img/warning_${lang_id}.png`
 
 var textsound = new Audio("../../snd/snd_text.wav")
 
@@ -274,6 +280,12 @@ function triggerFullscreen() {
     }
 
     resizeScene();
+
+    if (device_id == 2) {
+        eltiovyn.style.display = "block"
+    } else {
+        eltiovyn.style.display = "none"
+    }
 }
 
 function start() {
@@ -282,6 +294,7 @@ function start() {
     triggerFullscreen();
     scene.style.backgroundImage = "url('../../img/egg_zone_bg_noSign.png')";
     scene.style.cursor = "none";
+    document.getElementById("img_btns").style.zIndex = "101";
 
     started = true;
 }
@@ -615,6 +628,14 @@ $(function () {
                 skipTyping();
             }
 
+            if (key == "V") {
+                if (eltiovyn.style.display == "block") {
+                    eltiovyn.style.display = "none"
+                } else {
+                    eltiovyn.style.display = "block"
+                }
+            }
+
             if (inEggRoom == false) {
                 if (talking == false) {
                     if (readingSign == false) {
@@ -863,3 +884,40 @@ function gasterBoxClicked() {
 }
 
 text.addEventListener("click", gasterBoxClicked);
+
+const DIR_KEYS = {
+    up: "ARROWUP",
+    down: "ARROWDOWN",
+    left: "ARROWLEFT",
+    right: "ARROWRIGHT"
+};
+
+function tiovynStart(pressed) {
+    const key = DIR_KEYS[pressed];
+    if (key) keysPressed[key] = true;
+}
+
+function tiovynEnd(pressed) {
+    const key = DIR_KEYS[pressed];
+    if (key) keysPressed[key] = false;
+}
+
+function tiovyn(pressed) {
+    if (pressed == "x") {
+        $(document).trigger($.Event("keydown", { key: "X" }));
+    } else if (pressed == "z") {
+        $(document).trigger($.Event("keydown", { key: "Z" }));
+    }
+}
+
+var device_id = null;
+function setDevice(dev_id) {
+    if (device_id == null) {
+        device_id = dev_id;
+
+        document.getElementById("computer").classList.remove("clickable");
+        document.getElementById("smartfridge").classList.remove("clickable");
+
+        warn_screen.style.display = "none";
+    }
+}
