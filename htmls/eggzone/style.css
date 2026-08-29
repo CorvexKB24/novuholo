@@ -189,6 +189,13 @@ body {
 #img_btns {
     position: absolute;
     z-index: 0;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: manipulation;
+    pointer-events: none;
 }
 
 #up {
