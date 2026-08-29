@@ -17,6 +17,15 @@ body {
     cursor: url("../../img/hacker_cursor.png"), auto;
 }
 
+body {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
 .clickable:hover {
     cursor: url("../../img/hacker_cursor_c.png"), auto;
 }
@@ -130,4 +139,16 @@ span {
     width: 94px;
     height: 73px;
     top: 438px;
+}
+
+#realweb {
+    display: none;
+}
+
+#unknown {
+    position: absolute;
+    left: 42%;
+    width: 16%;
+    height: 39%;
+    top: 30%;
 }

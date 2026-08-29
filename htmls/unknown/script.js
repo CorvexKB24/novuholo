@@ -286,7 +286,19 @@ function resizeScene() {
     scene.style.transform = `translate(-50%, -50%) scale(${scale})`;
 }
 
-resizeScene();
+function triggerFullscreen() {
+    if (html.requestFullscreen) {
+        html.requestFullscreen();
+    } else if (html.webkitRequestFullscreen) {
+        html.webkitRequestFullscreen();
+    } else if (html.msRequestFullscreen) {
+        html.msRequestFullscreen();
+    }
+
+    document.getElementById("unknown_screen").style.display = "none";
+    document.getElementById("realweb").style.display = "block";
+    resizeScene();
+}
 
 var talking = false;
 function textTyping(textbox, dialogueLine, soundNeeded, i = 0, onComplete = null) {
@@ -537,3 +549,7 @@ function triggerChangeNumber(type) {
         }
     }
 }
+
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});

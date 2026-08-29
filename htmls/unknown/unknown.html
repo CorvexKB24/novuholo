@@ -13,31 +13,38 @@
 
 <body>
     <div id="scene">
-        <div id="ui">
-            <div class="buttons clickable" id="act" onclick="triggerCode()"></div>
-            <div class="buttons clickable" id="arrowup" onclick="triggerChangeNumber('up')"></div>
-            <div class="buttons clickable" id="arrowdown" onclick="triggerChangeNumber('down')"></div>
+        <div id="unknown_screen">
+            <img src="../../img/unknown.png">
+            <div id="unknown" class="clickable" onclick="triggerFullscreen()"></div>
         </div>
 
-        <div id="code">
-            <img id="arrows" src="../../img/arrows.png">
+        <div id="realweb">
+            <div id="ui">
+                <div class="buttons clickable" id="act" onclick="triggerCode()"></div>
+                <div class="buttons clickable" id="arrowup" onclick="triggerChangeNumber('up')"></div>
+                <div class="buttons clickable" id="arrowdown" onclick="triggerChangeNumber('down')"></div>
+            </div>
 
-            <p>
-                <span id="num1" class="clickable selected" onclick="changeSelection(1)">0</span>
-                <span id="num2" class="clickable" onclick="changeSelection(2)">0</span>
-                <span id="num3" class="clickable" onclick="changeSelection(3)">0</span>
-                <span id="num4" class="clickable" onclick="changeSelection(4)">0</span>
-            </p>
+            <div id="code">
+                <img id="arrows" src="../../img/arrows.png">
 
-            <img id="button" src="../../img/button.png">
-        </div>
+                <p>
+                    <span id="num1" class="clickable selected" onclick="changeSelection(1)">0</span>
+                    <span id="num2" class="clickable" onclick="changeSelection(2)">0</span>
+                    <span id="num3" class="clickable" onclick="changeSelection(3)">0</span>
+                    <span id="num4" class="clickable" onclick="changeSelection(4)">0</span>
+                </p>
 
-        <div id="dialoguetext">
-            <table id="text_speak">
-                <tr>
-                    <td id="dialogue"></td>
-                </tr>
-            </table>
+                <img id="button" src="../../img/button.png">
+            </div>
+
+            <div id="dialoguetext">
+                <table id="text_speak">
+                    <tr>
+                        <td id="dialogue"></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
 </body>
