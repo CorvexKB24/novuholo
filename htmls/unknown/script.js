@@ -338,6 +338,12 @@ const koroCode = "1303";
 const importantCode = "2202";
 
 $(function () {
+    $(document).click(function () {
+        if (inConversation == true) {
+            $(document).trigger($.Event("keydown", { key: "Z" }))
+        }
+    })
+
     $(document).keydown(function (e) {
         var key = (e.key).toUpperCase();
         if (inConversation == false) {
