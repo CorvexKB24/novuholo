@@ -28,3 +28,7 @@ function getLangFromURL() {
     const langParam = parseInt(params.get("lang"), 10);
     return (langParam === 1 || langParam === 2) ? langParam : 1;
 }
+
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});

@@ -43,3 +43,7 @@ function onMove(clientX, clientY) {
 document.addEventListener('mousemove', (e) => onMove(e.clientX, e.clientY));
 
 maskGroup.setAttribute('transform', `translate(${REST_X}, ${REST_Y})`);
+
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});

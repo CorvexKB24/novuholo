@@ -925,3 +925,7 @@ function setDevice(dev_id) {
         warn_screen.style.display = "none";
     }
 }
+
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+});
