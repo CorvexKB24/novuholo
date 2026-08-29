@@ -24,22 +24,23 @@
                 <img id="img_btns" src="../../img/eltiovyn.png" draggable="false">
 
                 <div class="port" id="up" onmousedown="tiovynStart('up')" onmouseup="tiovynEnd('up')"
-                    ontouchstart="tiovynStart('up')" ontouchend="tiovynEnd('up')"></div>
+                    ontouchstart="tiovynStart('up', event)" ontouchend="tiovynEnd('up', event)"></div>
 
                 <div class="port" id="down" onmousedown="tiovynStart('down')" onmouseup="tiovynEnd('down')"
-                    ontouchstart="tiovynStart('down')" ontouchend="tiovynEnd('down')"></div>
+                    ontouchstart="tiovynStart('down', event)" ontouchend="tiovynEnd('down', event)"></div>
 
                 <div class="port" id="left" onmousedown="tiovynStart('left')" onmouseup="tiovynEnd('left')"
-                    ontouchstart="tiovynStart('left')" ontouchend="tiovynEnd('left')"></div>
+                    ontouchstart="tiovynStart('left', event)" ontouchend="tiovynEnd('left', event)"></div>
 
                 <div class="port" id="right" onmousedown="tiovynStart('right')" onmouseup="tiovynEnd('right')"
-                    ontouchstart="tiovynStart('right')" ontouchend="tiovynEnd('right')"></div>
+                    ontouchstart="tiovynStart('right', event)" ontouchend="tiovynEnd('right', event)"></div>
 
                 <div class="port" id="key_x" onclick="tiovyn('x')"></div>
                 <div class="port" id="key_z" onclick="tiovyn('z')"></div>
             </div>
 
-            <img id="char_novu" class="clickable" src="../../img/sprites/spr_nov_lw_down_1.png" onclick="start()" draggable="false">
+            <img id="char_novu" class="clickable" src="../../img/sprites/spr_nov_lw_down_1.png" onclick="start()"
+                draggable="false">
             <img id="tree" src="../../vid/just_a_tree.gif" draggable="false">
 
             <div id="dialoguetext">

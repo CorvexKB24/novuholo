@@ -49,6 +49,8 @@ function spritePath(set, direction, frame) {
     return `${SPRITE_BASE}/spr_nov_${set}_${direction}_${frame}.png`;
 }
 
+scene.addEventListener("contextmenu", e => e.preventDefault());
+
 const SPRITE_PATHS = [];
 for (const set of SPRITE_SETS) {
     for (const dir of SPRITE_DIRECTIONS) {
@@ -892,12 +894,14 @@ const DIR_KEYS = {
     right: "ARROWRIGHT"
 };
 
-function tiovynStart(pressed) {
+function tiovynStart(pressed, e) {
+    if (e) e.preventDefault();
     const key = DIR_KEYS[pressed];
     if (key) keysPressed[key] = true;
 }
 
-function tiovynEnd(pressed) {
+function tiovynEnd(pressed, e) {
+    if (e) e.preventDefault();
     const key = DIR_KEYS[pressed];
     if (key) keysPressed[key] = false;
 }
