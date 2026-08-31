@@ -90,7 +90,7 @@ body {
 #shopkeeper {
     position: absolute;
     width: 380px;
-    top: 8.5%;
+    top: 11.8%;
     left: 47%;
     transform: translateX(-50%);
     transition: left 0.3s ease-in-out;
@@ -275,7 +275,7 @@ span {
 }
 
 .easteregg {
-    /* border: 5px rgb(255, 0, 183) solid; */
+    border: 5px rgb(255, 0, 183) solid;
     position: absolute;
     transform: translateX(-50%);
     user-select: none;
@@ -290,37 +290,37 @@ span {
 
 #ticket {
     width: 60px;
-    height: 60px;
+    height: 77px;
     top: 30.5%;
-    left: 82.5%;
+    left: 80%;
 }
 
 #corbatas {
-    width: 106px;
-    height: 76px;
-    top: 39%;
-    left: 74.8%;
+    width: 107px;
+    height: 83px;
+    top: 39.5%;
+    left: 71.5%;
 }
 
 #lancer {
     width: 90px;
     height: 76px;
     top: 23%;
-    left: 73%;
+    left: 69.5%;
 }
 
 #runadelta {
-    width: 24px;
-    height: 24px;
-    top: 12%;
-    left: 75.4%;
+    width: 149px;
+    height: 94px;
+    top: 3.2%;
+    left: 71%;
 }
 
 #corvex {
-    width: 120px;
+    width: 147px;
     height: 116px;
     top: 40%;
-    left: 41%;
+    left: 40.5%;
 }
 
 #tupilan {
@@ -338,24 +338,24 @@ span {
 }
 
 #lopizllo {
-    width: 120px;
-    height: 130px;
-    top: 22%;
-    left: 20%;
+    width: 182px;
+    height: 190px;
+    top: 17.5%;
+    left: 21.5%;
 }
 
 #pañuelos {
-    width: 150px;
-    height: 116px;
-    top: 34.5%;
-    left: 63.5%;
+    width: 145px;
+    height: 111px;
+    top: 35.5%;
+    left: 60.2%;
 }
 
 #riel {
-    width: 115px;
-    height: 85px;
-    top: 42.5%;
-    left: 28.5%;
+    width: 177px;
+    height: 110px;
+    top: 40.5%;
+    left: 27.5%;
 }
 
 #noname {
@@ -366,10 +366,10 @@ span {
 }
 
 #sunhoster {
-    width: 60px;
-    height: 60px;
+    width: 74px;
+    height: 77px;
     top: 36%;
-    left: 79.5%;
+    left: 76.2%;
 }
 
 #art_zoom_overlay {
