@@ -275,7 +275,7 @@ span {
 }
 
 .easteregg {
-    border: 5px rgb(255, 0, 183) solid;
+    /* border: 5px rgb(255, 0, 183) solid; */
     position: absolute;
     transform: translateX(-50%);
     user-select: none;
