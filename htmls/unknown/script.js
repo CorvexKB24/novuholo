@@ -61,7 +61,7 @@ var id_convo = 0;
 var id_dialogue = 0;
 var inConversation = false;
 
-var textsound = new Audio("../../snd/snd_text.wav")
+var textsound = new Audio("../../snd/snd_txtbom.wav")
 var snd_select = new Audio("../../snd/snd_select.wav")
 var snd_txtnon = new Audio("../../snd/snd_txt_non.wav")
 snd_txtnon.volume = 0.20;
