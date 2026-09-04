@@ -1,6 +1,9 @@
 // NO ABRAS ESTE CÓDIGO PARA BUSCAR LOS SECRETOS, NO SEAS TRAMPOSO QUE LE QUITA LA GRACIA
 // porfi :(
 
+const DESIGN_WIDTH = 1920;
+const DESIGN_HEIGHT = 1080;
+const html = document.documentElement;
 var alreadyPlaying = false;
 
 function getLangFromURL() {
@@ -13,6 +16,8 @@ var lang_id = getLangFromURL();
 
 function showThem() {
     if (alreadyPlaying == false) {
+        triggerFullscreen();
+
         const song = new Audio("../../snd/happy_town.mp3");
         const punchcard = document.getElementById("punchcard");
         song.volume = 0.1;
@@ -36,3 +41,14 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
+window.addEventListener("resize", resizeScene);
+
+function triggerFullscreen() {
+    if (html.requestFullscreen) {
+        html.requestFullscreen();
+    } else if (html.webkitRequestFullscreen) {
+        html.webkitRequestFullscreen();
+    } else if (html.msRequestFullscreen) {
+        html.msRequestFullscreen();
+    }
+}

@@ -12,7 +12,6 @@ const dialoguebox = document.getElementById("dialoguebox");
 const artbox = document.getElementById("art");
 const artZoomOverlay = document.getElementById("art_zoom_overlay");
 const artZoomImg = document.getElementById("art_zoom_img");
-const art = document.getElementById("art");
 const art_displayed = document.getElementById("art_displayed");
 const novu = document.getElementById("shopkeeper");
 const btn = document.getElementById("enter_btn");
@@ -158,11 +157,54 @@ const ASSETS_TO_PRELOAD = [
     "img/comms/comms (4).png"
 ];
 
+var assetsLoaded = 0;
+var totalAssets = 0;
+var allLoaded = false;
+
+const enText = document.querySelector("#assetsStatsEN .loadedAssets");
+const esText = document.querySelector("#assetsStatsES .loadedAssets");
+
+function updateAssetStats() {
+    const pct = totalAssets ? Math.floor((assetsLoaded / totalAssets) * 100) : 0;
+    if (enText) enText.textContent = pct;
+    if (esText) esText.textContent = pct;
+}
+
 function preloadAssets(list) {
+    totalAssets = list.length;
     list.forEach(src => {
-        const img = new Image();
-        img.src = src;
+        const asset = new Image();
+
+        const onDone = function () {
+            assetsLoaded++;
+            updateAssetStats();
+
+            if (assetsLoaded === totalAssets) {
+                onAllAssetsLoaded();
+            }
+        };
+
+        asset.onload = onDone;
+        asset.onerror = onDone;
+
+        asset.src = src;
     });
+}
+
+function onAllAssetsLoaded() {
+    setTimeout(() => {
+        allLoaded = true;
+        document.getElementById("assetsStatsEN").style.display = "none";
+        document.getElementById("assetsStatsES").style.display = "none";
+
+        const enterMenu = document.getElementById("enter_menu");
+        enterMenu.classList.remove("hidden");
+        void enterMenu.offsetWidth;
+
+        requestAnimationFrame(() => {
+            resizeEnterMenu();
+        });
+    }, 500);
 }
 
 preloadAssets(ASSETS_TO_PRELOAD);
@@ -197,7 +239,6 @@ var artGalleryFirstTime = true;
 window.addEventListener("resize", resizeScene);
 window.addEventListener("resize", resizeEnterMenu);
 window.addEventListener("load", resizeScene);
-window.addEventListener("load", resizeEnterMenu);
 btn.addEventListener("click", triggerFullscreen);
 
 art_displayed.addEventListener("click", () => {
@@ -1019,35 +1060,36 @@ function resizeEnterMenu() {
 }
 
 function triggerFullscreen() {
-    preloadAssets(ASSETS_TO_PRELOAD);
-    alreadyInShop = true;
+    if (allLoaded == true) {
+        alreadyInShop = true;
 
-    shopSong.volume = 0.20;
-    shopSong.loop = true;
-    shopSong.play().catch(console.error);
+        shopSong.volume = 0.20;
+        shopSong.loop = true;
+        shopSong.play().catch(console.error);
 
-    if (html.requestFullscreen) {
-        html.requestFullscreen();
-    } else if (html.webkitRequestFullscreen) {
-        html.webkitRequestFullscreen();
-    } else if (html.msRequestFullscreen) {
-        html.msRequestFullscreen();
+        if (html.requestFullscreen) {
+            html.requestFullscreen();
+        } else if (html.webkitRequestFullscreen) {
+            html.webkitRequestFullscreen();
+        } else if (html.msRequestFullscreen) {
+            html.msRequestFullscreen();
+        }
+
+        if (lang_id == 1) {
+            document.title = "NOVU'S SHOP";
+        } else if (lang_id == 2) {
+            document.title = "TIENDA DE NOVU";
+        }
+
+        btn.hidden = true;
+        document.getElementById("enter_menu").style.display = "none";
+        shop.style.display = "flex";
+        playSelectSound();
+
+        resizeScene();
+
+        textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
     }
-
-    if (lang_id == 1) {
-        document.title = "NOVU'S SHOP";
-    } else if (lang_id == 2) {
-        document.title = "TIENDA DE NOVU";
-    }
-
-    btn.hidden = true;
-    document.getElementById("enter_menu").style.display = "none";
-    shop.style.display = "flex";
-    playSelectSound();
-
-    resizeScene();
-
-    textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
 }
 
 function hideHeart(heartId) {
@@ -1237,7 +1279,7 @@ $(function () {
                                         art_displayed.classList.add("clickable");
                                         left_art_btn.classList.add("clickable");
                                         right_art_btn.classList.add("clickable");
-                                        art.style.opacity = "1";
+                                        artbox.style.opacity = "1";
                                         left_art_btn.style.opacity = "1"
                                         right_art_btn.style.opacity = "1"
                                         setEasterEggsEnabled(false);
@@ -1268,7 +1310,7 @@ $(function () {
                                         art_displayed.classList.remove("clickable");
                                         left_art_btn.classList.remove("clickable");
                                         right_art_btn.classList.remove("clickable");
-                                        art.style.opacity = "0";
+                                        artbox.style.opacity = "0";
                                         left_art_btn.style.opacity = "0"
                                         right_art_btn.style.opacity = "0"
                                         artZoomOverlay.classList.remove("active");
@@ -1296,7 +1338,7 @@ $(function () {
                                         art_displayed.classList.add("clickable");
                                         left_art_btn.classList.add("clickable");
                                         right_art_btn.classList.add("clickable");
-                                        art.style.opacity = "1";
+                                        artbox.style.opacity = "1";
                                         left_art_btn.style.opacity = "1"
                                         right_art_btn.style.opacity = "1"
                                         setEasterEggsEnabled(false);
@@ -1316,7 +1358,7 @@ $(function () {
                                         art_displayed.classList.remove("clickable");
                                         left_art_btn.classList.remove("clickable");
                                         right_art_btn.classList.remove("clickable");
-                                        art.style.opacity = "0";
+                                        artbox.style.opacity = "0";
                                         left_art_btn.style.opacity = "0"
                                         right_art_btn.style.opacity = "0"
                                         artZoomOverlay.classList.remove("active");
@@ -1340,7 +1382,7 @@ $(function () {
                                         artbox.style.display = "flex";
                                         art_displayed.setAttribute("onclick", "location.reload();location.href='https://deltaesp.site'");
                                         art_displayed.classList.add("clickable");
-                                        art.style.opacity = "1";
+                                        artbox.style.opacity = "1";
                                         setEasterEggsEnabled(false);
                                         setNovuAside()
                                         $(`#heart${heartSelected}`).addClass("notSelected");
@@ -1351,7 +1393,7 @@ $(function () {
                                         textTyping(textbox, conversations[id_convo][lang[lang_id]][id_dialogue], "text")
                                         art_displayed.removeAttribute("onclick")
                                         art_displayed.classList.remove("clickable");
-                                        art.style.opacity = "0";
+                                        artbox.style.opacity = "0";
                                         setEasterEggsEnabled(true);
                                         setNovuBack();
                                         changeNovuFace();
@@ -1612,7 +1654,6 @@ function easterEgg(easter_id) {
                 break;
 
             case 2:
-                location.reload();
                 location.href = `htmls/dontforget/dontforget.html?lang=${lang_id}`;
                 break;
 
@@ -1633,12 +1674,10 @@ function easterEgg(easter_id) {
                 break;
 
             case 7:
-                location.reload();
                 location.href = `vid/sunhoster.mp4`;
                 break;
 
             case 8:
-                location.reload();
                 location.href = `htmls/eggzone/egg_zone.html?lang=${lang_id}`;
                 break;
 
@@ -1655,7 +1694,6 @@ function easterEgg(easter_id) {
                 break;
 
             case 12:
-                location.reload();
                 location.href = `htmls/unknown/unknown.html?lang=${lang_id}`;
                 break;
         }
@@ -1728,7 +1766,6 @@ function novuGuideClicked() {
         explosion.volume = 0.25;
         explosion.play();
 
-        document.getElementById("novuGuide").src = ("img/shop/explosion.gif")
         document.getElementById("novuGuide").src = ("img/shop/explosion.gif")
         shopSong.volume = 0;
 

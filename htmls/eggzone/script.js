@@ -291,14 +291,16 @@ function triggerFullscreen() {
 }
 
 function start() {
-    preloadImages(IMAGE_PATHS, () => { })
-    snd_bg_music.play();
-    triggerFullscreen();
-    scene.style.backgroundImage = "url('../../img/egg_zone_bg_noSign.png')";
-    scene.style.cursor = "none";
-    document.getElementById("img_btns").style.zIndex = "101";
+    if (started == false) {
+        snd_bg_music.play();
+        triggerFullscreen();
+        scene.style.backgroundImage = "url('../../img/egg_zone_bg_noSign.png')";
+        scene.style.cursor = "none";
+        document.getElementById("img_btns").style.zIndex = "101";
 
-    started = true;
+        character.classList.remove("clickable");
+        started = true;
+    }
 }
 
 var talking = false;
@@ -509,7 +511,6 @@ function moveEggRoomY(direction) {
     moveCharacter();
 
     if (direction > 0 && posY >= 1200) {
-        location.reload();
         location.href = "../../index.html";
     }
     return true;
@@ -739,7 +740,6 @@ $(function () {
                         if (key == "Z" || key == " " || key == "ENTER") {
                             if (binoculars == true) {
                                 if (posX >= 1112 && posX <= 1138 && posY == 370) {
-                                    location.reload();
                                     location.href = "bino/bino.html";
                                 }
                             }

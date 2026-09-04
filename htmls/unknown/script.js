@@ -511,7 +511,6 @@ $(function () {
 });
 
 function goBack() {
-    location.reload();
     location.href = "../../index.html";
 }
 

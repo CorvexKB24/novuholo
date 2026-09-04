@@ -136,6 +136,5 @@ window.addEventListener('load', () => {
 });
 
 function openFanarts(lang) {
-    location.reload();
     location.href = `../fanartgallery/fanartgallery_${lang}.html`;
 }

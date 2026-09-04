@@ -22,7 +22,10 @@
 <!-- porfi :( -->
 
 <body>
-    <div id="enter_menu">
+    <p id="assetsStatsEN">Loading assets... (<span class="loadedAssets">0</span>%)</p>
+    <p id="assetsStatsES">Cargando recursos... (<span class="loadedAssets">0</span>%)</p>
+
+    <div id="enter_menu" class="hidden">
         <h1 class="clickable" id="enter_btn">&gt ENTER &lt</h1>
         <p><span id="en_option" class="clickable selected" onclick="changeLanguage(1)">ENGLISH</span><br><span
                 id="es_option" class="clickable" onclick="changeLanguage(2)">SPANISH</span></p>
@@ -115,11 +118,11 @@
             </div>
 
             <div class="clickable" id="right_art" onclick="art_right()">
-                <p id="info_icon">&gt;</p>
+                <p>&gt;</p>
             </div>
 
             <div class="clickable" id="left_art" onclick="art_left()">
-                <p id="info_icon">&lt;</p>
+                <p>&lt;</p>
             </div>
 
             <div id="art_zoom_overlay">

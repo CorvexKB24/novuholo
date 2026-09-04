@@ -1,7 +1,9 @@
 var lang_id = getLangFromURL();
 const secret = document.getElementById("secretTXT");
+const html = document.documentElement;
 
 function playSong() {
+    triggerFullscreen();
     const song = new Audio("../../snd/fei_theme.wav");
     song.volume = 0.1;
     song.loop = true;
@@ -32,3 +34,13 @@ function getLangFromURL() {
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
+
+function triggerFullscreen() {
+    if (html.requestFullscreen) {
+        html.requestFullscreen();
+    } else if (html.webkitRequestFullscreen) {
+        html.webkitRequestFullscreen();
+    } else if (html.msRequestFullscreen) {
+        html.msRequestFullscreen();
+    }
+}

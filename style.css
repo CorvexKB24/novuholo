@@ -692,3 +692,31 @@ span {
 .easteregg.disabled {
     pointer-events: none;
 }
+
+.hidden {
+    display: none;
+}
+
+#assetsStatsEN {
+    font-size: 30px;
+        color: rgb(252, 252, 252);
+    text-align: center;
+    vertical-align: center;
+    margin-bottom: 0px;
+
+    span {
+        color: rgb(255, 255, 255);
+    }
+}
+
+#assetsStatsES {
+    font-size: 22px;
+    color: rgb(133, 133, 133);
+    text-align: center;
+    vertical-align: center;
+    margin-top: 5px;
+
+    span {
+        color: rgb(133, 133, 133);
+    }
+}
