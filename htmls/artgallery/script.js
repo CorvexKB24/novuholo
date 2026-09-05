@@ -118,6 +118,15 @@ const ASSETS_TO_PRELOAD = [
     "../../img/art/novu_art (111).png",
     "../../img/art/novu_art (112).png",
     "../../img/art/novu_art (113).png",
+    "../../img/art/novu_art (114).png",
+    "../../img/art/novu_art (115).png",
+    "../../img/art/novu_art (116).png",
+    "../../img/art/novu_art (117).png",
+    "../../img/art/novu_art (118).png",
+    "../../img/art/novu_art (119).png",
+
+    "../../img/art/gifs/novu_art (1).gif",
+    "../../img/art/gifs/novu_art (2).gif",
 
     "../../vid/fondo_Paralax.mp4"
 ];
