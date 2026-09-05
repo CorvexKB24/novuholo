@@ -389,10 +389,10 @@ span {
 }
 
 #art_zoom_img {
-    max-width: 90vw;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    width: 90%;
+    height: 90%;
     object-fit: contain;
     transform: scale(0.85);
     opacity: 0;
