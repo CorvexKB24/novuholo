@@ -1524,19 +1524,19 @@ $(function () {
                         if (artGallery == true) {
                             if (commissions == false) {
                                 if (key == "ARROWLEFT" || key == "A") {
-                                    if (id_art <= 129 && id_art > 1) {
+                                    if (id_art <= 130 && id_art > 1) {
                                         id_art--;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     } else {
-                                        id_art = 129;
+                                        id_art = 130;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     }
                                 } else if (key == "ARROWRIGHT" || key == "D") {
-                                    if (id_art >= 1 && id_art < 129) {
+                                    if (id_art >= 1 && id_art < 130) {
                                         id_art++;
                                         console.log(`artDisplayed: ${id_art}`)
 
