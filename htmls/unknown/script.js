@@ -297,6 +297,7 @@ function triggerFullscreen() {
 
     document.getElementById("unknown_screen").style.display = "none";
     document.getElementById("realweb").style.display = "block";
+    erizoCheck = true;
     resizeScene();
 }
 
@@ -352,6 +353,8 @@ const koroCode = "1303";
 const importantCode = "2202";
 // Si has leído los códigos: debería darte vergüenza
 
+
+var erizoCheck = false;
 $(function () {
     $(document).click(function () {
         if (inConversation == true) {
@@ -361,151 +364,152 @@ $(function () {
 
     $(document).keydown(function (e) {
         var key = (e.key).toUpperCase();
-        if (inConversation == false) {
+        if (erizoCheck == true) {
+            if (inConversation == false) {
 
-            if (key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9") {
-                nums[selected - 1] = key;
+                if (key == "0" || key == "1" || key == "2" || key == "3" || key == "4" || key == "5" || key == "6" || key == "7" || key == "8" || key == "9") {
+                    nums[selected - 1] = key;
 
-                $(`#num${selected}`).text(nums[selected - 1]);
-                playSelectSound();
+                    $(`#num${selected}`).text(nums[selected - 1]);
+                    playSelectSound();
 
-                if (selected == 1 || selected == 2 || selected == 3) {
-                    $(`#num${selected}`).removeClass("selected");
-                    selected++;
-                    $(`#num${selected}`).addClass("selected");
-                } else if (selected == 4) {
-                    $(`#num${selected}`).removeClass("selected");
-                    selected = 1;
-                    $(`#num${selected}`).addClass("selected");
-                }
-            } else {
-                if (key == "ARROWLEFT" || key == "A") {
-                    if (selected > 1) {
-                        $(`#num${selected}`).removeClass("selected");
-                        selected--;
-                        $(`#num${selected}`).addClass("selected");
-                    } else {
-                        $(`#num${selected}`).removeClass("selected");
-                        selected = 4;
-                        $(`#num${selected}`).addClass("selected");
-                    }
-                } else if (key == "ARROWRIGHT" || key == "D") {
-                    if (selected < 4) {
+                    if (selected == 1 || selected == 2 || selected == 3) {
                         $(`#num${selected}`).removeClass("selected");
                         selected++;
                         $(`#num${selected}`).addClass("selected");
-                    } else {
+                    } else if (selected == 4) {
                         $(`#num${selected}`).removeClass("selected");
                         selected = 1;
                         $(`#num${selected}`).addClass("selected");
                     }
-                }
-
-                if (key == "ARROWUP" || key == "W") {
-                    if (nums[selected - 1] < 9) {
-                        nums[selected - 1]++;
-                        $(`#num${selected}`).text(nums[selected - 1]);
-                        playSelectSound();
-                    } else if (nums[selected - 1] == 9) {
-                        nums[selected - 1] = 0;
-                        $(`#num${selected}`).text(nums[selected - 1]);
-                        playSelectSound();
+                } else {
+                    if (key == "ARROWLEFT" || key == "A") {
+                        if (selected > 1) {
+                            $(`#num${selected}`).removeClass("selected");
+                            selected--;
+                            $(`#num${selected}`).addClass("selected");
+                        } else {
+                            $(`#num${selected}`).removeClass("selected");
+                            selected = 4;
+                            $(`#num${selected}`).addClass("selected");
+                        }
+                    } else if (key == "ARROWRIGHT" || key == "D") {
+                        if (selected < 4) {
+                            $(`#num${selected}`).removeClass("selected");
+                            selected++;
+                            $(`#num${selected}`).addClass("selected");
+                        } else {
+                            $(`#num${selected}`).removeClass("selected");
+                            selected = 1;
+                            $(`#num${selected}`).addClass("selected");
+                        }
                     }
-                } else if (key == "ARROWDOWN" || key == "S") {
-                    if (nums[selected - 1] > 0) {
-                        nums[selected - 1]--;
-                        $(`#num${selected}`).text(nums[selected - 1]);
-                        playSelectSound();
-                    } else if (nums[selected - 1] == 0) {
-                        nums[selected - 1] = 9;
-                        $(`#num${selected}`).text(nums[selected - 1]);
-                        playSelectSound();
+
+                    if (key == "ARROWUP" || key == "W") {
+                        if (nums[selected - 1] < 9) {
+                            nums[selected - 1]++;
+                            $(`#num${selected}`).text(nums[selected - 1]);
+                            playSelectSound();
+                        } else if (nums[selected - 1] == 9) {
+                            nums[selected - 1] = 0;
+                            $(`#num${selected}`).text(nums[selected - 1]);
+                            playSelectSound();
+                        }
+                    } else if (key == "ARROWDOWN" || key == "S") {
+                        if (nums[selected - 1] > 0) {
+                            nums[selected - 1]--;
+                            $(`#num${selected}`).text(nums[selected - 1]);
+                            playSelectSound();
+                        } else if (nums[selected - 1] == 0) {
+                            nums[selected - 1] = 9;
+                            $(`#num${selected}`).text(nums[selected - 1]);
+                            playSelectSound();
+                        }
                     }
                 }
             }
-        }
 
-        if (key == "ENTER" || key == " " || key == "Z") {
-            if (inConversation == false) {
-                introducedcode = `${nums[0]}${nums[1]}${nums[2]}${nums[3]}`;
-                playSelectSound();
-                codeBox.style.display = "none";
-                uiZone.style.display = "none";
+            if (key == "ENTER" || key == " " || key == "Z") {
+                if (inConversation == false) {
+                    introducedcode = `${nums[0]}${nums[1]}${nums[2]}${nums[3]}`;
+                    playSelectSound();
+                    codeBox.style.display = "none";
+                    uiZone.style.display = "none";
 
-
-                if (introducedcode == correctCode) {
-                    id_convo = 2;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == dessCode) {
-                    id_convo = 3;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == novexCode) {
-                    id_convo = 4;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == vexCode) {
-                    id_convo = 5;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == mikeCode) {
-                    id_convo = 6;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == funnyCode) {
-                    id_convo = 7;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == notfunnyCode) {
-                    id_convo = 8;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == favCode) {
-                    id_convo = 9;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == dumbCode) {
-                    id_convo = 10;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == koroCode) {
-                    id_convo = 11;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == importantCode) {
-                    id_convo = 12;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else if (introducedcode == diabloCode) {
-                    id_convo = 13;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                } else {
-                    id_convo = 1;
-                    id_dialogue = 1;
-                    scene.style.backgroundImage = "url('img/wrong.png')";
-                }
-
-                inConversation = true;
-                textTyping(dialogue, dialogues[id_convo][lang[lang_id]][id_dialogue], "text")
-            } else {
-                if (talking == false) {
-                    const currentDialogueSet = dialogues[id_convo][lang[lang_id]];
-                    const dialogueCount = Object.keys(currentDialogueSet).length + 1;
-
-                    if (id_dialogue < dialogueCount) {
-                        textTyping(dialogue, currentDialogueSet[id_dialogue], "text");
+                    if (introducedcode == correctCode) {
+                        id_convo = 2;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == dessCode) {
+                        id_convo = 3;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == novexCode) {
+                        id_convo = 4;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == vexCode) {
+                        id_convo = 5;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == mikeCode) {
+                        id_convo = 6;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == funnyCode) {
+                        id_convo = 7;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == notfunnyCode) {
+                        id_convo = 8;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == favCode) {
+                        id_convo = 9;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == dumbCode) {
+                        id_convo = 10;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == koroCode) {
+                        id_convo = 11;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == importantCode) {
+                        id_convo = 12;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
+                    } else if (introducedcode == diabloCode) {
+                        id_convo = 13;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
                     } else {
-                        dialogue.style.display = "none"
-                        scene.style.backgroundImage = "url('img/goodbye.png')";
+                        id_convo = 1;
+                        id_dialogue = 1;
+                        scene.style.backgroundImage = "url('img/wrong.png')";
+                    }
 
-                        snd_txtnon.play();
+                    inConversation = true;
+                    textTyping(dialogue, dialogues[id_convo][lang[lang_id]][id_dialogue], "text")
+                } else {
+                    if (talking == false) {
+                        const currentDialogueSet = dialogues[id_convo][lang[lang_id]];
+                        const dialogueCount = Object.keys(currentDialogueSet).length + 1;
 
-                        if (id_convo == 2) {
-                            download();
+                        if (id_dialogue < dialogueCount) {
+                            textTyping(dialogue, currentDialogueSet[id_dialogue], "text");
+                        } else {
+                            dialogue.style.display = "none"
+                            scene.style.backgroundImage = "url('img/goodbye.png')";
+
+                            snd_txtnon.play();
+
+                            if (id_convo == 2) {
+                                download();
+                            }
+                            setTimeout(() => goBack(), 2500);
                         }
-                        setTimeout(() => goBack(), 2500);
                     }
                 }
             }
