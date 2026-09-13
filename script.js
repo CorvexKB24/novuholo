@@ -516,7 +516,7 @@ const conversations = {
             1: "Soy Novu, artista digital, hago doblaje y también otras tantas cosas.",
             2: "Ya que estás aquí, quizá podrías mirar un poco el resto de opciones.",
             3: ". . .",
-            4: "sí vale me gusta Deltarune ya lo he dicho."
+            4: "sí vale me gusta DELTARUNE ya lo he dicho"
         }
     },
     2: {
@@ -562,9 +562,9 @@ const conversations = {
             4: "If you need to look for more examples, maybe I can show you MY ART.",
             5: ". . .",
             6: "Well, go on, you can look and then don't buy anything!",
-            7: "Then you'll leave meanwhile we're looking each other uncomfortably. . .",
+            7: "Then you'll leave while we look uncomfortably at eachother. . .",
             8: "Don't worry. We all had been in your situation. No pressure.",
-            9: "Anyways, if you want to buy something, you better talk me on other places.",
+            9: "Anyways, if you want to buy something, you can CONTACT me on other platforms",
             10: "I heard that Discord may be cool.",
             11: "Anyways, skip this dialogue when you're done."
         },
@@ -585,11 +585,11 @@ const conversations = {
     },
     4: {
         en: {
-            1: "DeltaESP? Yeah, I can talk about it. But it doesn't make sense if we're talking in english. . .",
+            1: "DeltaESP? Yeah, I can talk about it. But it doesn't make sense if we're speaking English. . .",
             2: "Basically, I work as a translator alongside ArceUseless.",
-            3: "We translated to Castilian Spanish a lot of things UT/DR related.",
-            4: "Right now, we did Undertale, Deltarune, Ribbit, UT!Yellow. . . and more!",
-            5: "You can check it on our website. Click on this image, it's linked to the website.",
+            3: "We translated to Castilian Spanish a lot of UT/DR related things.",
+            4: "So far, we translated Undertale, DELTARUNE, Ribbit, UT!Yellow. . . and more!",
+            5: "You can check them out on our website by clicking on this image.",
             6: "Don't ask me why or how, it's beyond me."
         },
 
@@ -597,7 +597,7 @@ const conversations = {
             1: "¿DeltaESP? Pensaba que nunca preguntarías.",
             2: "Básicamente, es un proyecto de traducción en el que traducimos ArceUseless y yo.",
             3: "Principalmente solemos traducir cosas relacionadas con UT/DR.",
-            4: "Ahora mismo, hemos traducido Undertale, Deltarune, Ribbit, Undertale Yellow. . . ¡y más! ",
+            4: "Ahora mismo, hemos traducido Undertale, DELTARUNE, Ribbit, Undertale Yellow. . . ¡y más! ",
             5: "Puedes revisar todo nuestro trabajo en nuestra página web. Pulsa esta imagen, te llevará a la web.",
             6: "No me preguntes cómo ni por qué, me supera."
         }
@@ -621,7 +621,7 @@ const conversations = {
             4: "And in a way, it also made me feel good.",
             5: "It was like giving a part of myself to characters I liked.",
             6: "I started training in voice acting a few years ago, and I dream of being able to make a career out of it.",
-            7: "If you'd like to see a little of what I do, you can check out my voice acting account in the information panel. Just remember it's Spanish."
+            7: "If you'd like to see a little of what I do, you can check out my voice acting account in the information panel. Just remember it's in Spanish."
         },
 
         es: {
@@ -674,7 +674,7 @@ const conversations = {
     8: {
         en: {
             1: "Oh, right. . .",
-            2: "If you want to contact me, the best option is Discord. My username is @novuholo.",
+            2: "If you want to contact me, the best option is through Discord. My username is @novuholo.",
             3: "Otherwise, you can always reach me on platforms like Instagram or Twitter. Check the information panel if you're interested.",
             4: "Sometimes messages and notifications get lost, in between, but I usually keep an eye on them.",
             5: "And. . . not much else. If you give me a follow, I'll be infinitely grateful."
@@ -717,7 +717,7 @@ const conversations = {
             4: "We're here... and that's it.",
             5: "Everything seems full of ideas. . . Maybe they've materialized? Is it because of the train?",
             6: "I wonder where it's going or what's behind the window to begin with.",
-            7: "Lately, I've started paying more attention to foreign colors",
+            7: "Lately, I've started paying more attention to foreign colors.",
             8: "To all the light that might catch my eye.",
             9: "Sometimes. . . It's just cool to look out the window and gaze at what's out there.",
             10: "Sometimes it inspires me, sometimes it irritates me.",
@@ -734,12 +734,12 @@ const conversations = {
             3: "¿Parece un tren? Tampoco sé a dónde iré ni cuándo va a arrancar.",
             4: "Estamos aquí. . . y ya.",
             5: "Todo parece lleno de ideas, ¿quizá materializadas? ¿Será cosa del tren?",
-            6: "Me pregunto a dónde irá o que es lo que hay tras la ventana para empezar.",
+            6: "Me pregunto a dónde irá o qué es lo que hay tras la ventana para empezar.",
             7: "Últimamente me he empezado a fijar más en los colores ajenos.",
             8: "En toda la luz incidente que pueda llegar a atraparme.",
             9: "A veces. . . simplemente mola mirar por la ventana y contemplar lo que hay.",
             10: "A veces me inspira, a veces me irrita.",
-            11: "Pero la ventana también me asusta. Mola mirar por ella pero. . .",
+            11: "Pero la ventana también me asusta. Mola mirar por ella, pero. . .",
             12: "Quizá sin darme cuenta, me quedo demasiado tiempo. . .",
             13: ". . . y me salto mi parada.",
             14: "Si es que todavía no lo he hecho.",
@@ -837,15 +837,15 @@ const conversations = {
 
     17: {
         en: {
-            1: "There may be quite a few people who know me for translating Deltarune into Spanish.",
+            1: "There may be quite a few people who know me for translating DELTARUNE into Spanish.",
             2: "Although it's still unofficial for now, of course.",
             3: "I'm so happy that people are really enjoying it and that we've built such a great audience.",
             4: "Besides, DeltaESP has become very important to me. . .",
-            5: "It's the most important and coolest project I've done so far.",
+            5: "It's the most important and the coolest project I've done so far.",
             6: "But at the same time, I can't help but wonder about things like. . .",
-            7: "Will I be someone when Deltarune is over?",
-            8: "Do people admire me for my work or for Deltarune?",
-            9: "Will I be able to do anything beyond Deltarune?",
+            7: "Will I be someone when DELTARUNE is over?",
+            8: "Do people admire me for my work or for DELTARUNE?",
+            9: "Will I be able to do anything beyond DELTARUNE?",
             10: "To be honest, these are questions that bother me a little.",
             11: "I think I have a bit of imposter syndrome.",
             12: "Lately, I've seen a lot of people who admire me and are excited to meet me. . .",
@@ -857,15 +857,15 @@ const conversations = {
         },
 
         es: {
-            1: "Quizá haya varios que me conocen por traducir Deltarune al español.",
+            1: "Quizá haya varios que me conocen por traducir DELTARUNE al español.",
             2: "Aunque por ahora sea de forma no oficial, claro. ",
             3: "Soy muy feliz de lo mucho que disfrutan de la traducción y del público que hemos conseguido.",
             4: "Además, DeltaESP se ha convertido en algo muy importante para mí. . .",
             5: "Es el proyecto más importante y guay que he hecho hasta ahora.",
             6: "Pero a su vez, no puedo evitar preguntarme cosas como. . .",
-            7: "¿Seré alguien cuando acabe Deltarune?",
-            8: "¿La gente me admira por mi trabajo o por Deltarune?",
-            9: "¿Podré hacer algo más allá de Deltarune?",
+            7: "¿Seré alguien cuando acabe DELTARUNE?",
+            8: "¿La gente me admira por mi trabajo o por DELTARUNE?",
+            9: "¿Podré hacer algo más allá de DELTARUNE?",
             10: "Son preguntas que me atormentan un poco, la verdad.",
             11: "Creo que tengo un poco de síndrome del impostor.",
             12: "Recientemente he visto a mucha gente que me admira y que se emociona por conocerme. . .",
