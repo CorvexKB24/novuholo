@@ -22,6 +22,8 @@ const ASSETS_TO_PRELOAD = [
     "../../vid/fondo_Paralax.mp4"
 ];
 
+const galleryTitle = document.getElementById("galleryTitle")
+
 function preloadAssets(list) {
     list.forEach(src => {
         const img = new Image();
@@ -33,4 +35,38 @@ preloadAssets(ASSETS_TO_PRELOAD);
 
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
+});
+
+const lang = {
+    1: "en",
+    2: "es"
+};
+
+var lang_id = getLangFromURL();
+
+function getLangFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const langParam = parseInt(params.get("lang"), 10);
+    return (langParam === 1 || langParam === 2) ? langParam : 1;
+}
+
+if (lang_id == 1) {
+    document.title = "FANART GALLERY";
+    galleryTitle.textContent = "FANART GALLERY";
+}
+
+const galeria = document.getElementById("galeria");
+const artZoomOverlay = document.getElementById("art_zoom_overlay");
+const artZoomImg = document.getElementById("art_zoom_img");
+
+galeria.addEventListener("click", (e) => {
+    const img = e.target.closest(".hueco img");
+    if (!img) return;
+
+    artZoomImg.src = img.src;
+    artZoomOverlay.classList.add("active");
+});
+
+artZoomOverlay.addEventListener("click", () => {
+    artZoomOverlay.classList.remove("active");
 });

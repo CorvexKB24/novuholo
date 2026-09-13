@@ -117,3 +117,35 @@ h1 {
 #scribblemonster {
     font-size: 15px;
 }
+
+#art_zoom_overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+#art_zoom_overlay.active {
+    display: flex;
+}
+
+#art_zoom_img {
+    max-width: 90%;
+    max-height: 90%;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    transform: scale(0.85);
+    opacity: 0;
+    transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+}
+
+#art_zoom_overlay.active #art_zoom_img {
+    transform: scale(1);
+    opacity: 1;
+}

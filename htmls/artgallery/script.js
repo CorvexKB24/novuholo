@@ -128,8 +128,12 @@ const ASSETS_TO_PRELOAD = [
     "../../img/art/gifs/novu_art (1).gif",
     "../../img/art/gifs/novu_art (2).gif",
 
-    "../../vid/fondo_Paralax.mp4"
+    "../../vid/fondo_Paralax.mp4",
+    "../../img/art_gallery_en.png",
+    "../../img/art_gallery_es.png"
 ];
+
+const novuTextbox = document.getElementById("novuTextbox");
 
 function preloadAssets(list) {
     list.forEach(src => {
@@ -144,6 +148,40 @@ window.addEventListener('load', () => {
     document.body.classList.add('loaded');
 });
 
-function openFanarts(lang) {
-    location.href = `../fanartgallery/fanartgallery_${lang}.html`;
+function openFanarts() {
+    location.href = `../fanartgallery/fanartgallery.html?lang=${lang_id}`;
 }
+
+const lang = {
+    1: "en",
+    2: "es"
+};
+
+var lang_id = getLangFromURL();
+
+function getLangFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const langParam = parseInt(params.get("lang"), 10);
+    return (langParam === 1 || langParam === 2) ? langParam : 1;
+}
+
+novuTextbox.src = `../../img/art_gallery_${lang[lang_id]}.png`;
+if (lang_id == 1) {
+    document.title = "NOVU'S ART";
+}
+
+const galeria = document.getElementById("galeria");
+const artZoomOverlay = document.getElementById("art_zoom_overlay");
+const artZoomImg = document.getElementById("art_zoom_img");
+
+galeria.addEventListener("click", (e) => {
+    const img = e.target.closest(".hueco img");
+    if (!img) return;
+
+    artZoomImg.src = img.src;
+    artZoomOverlay.classList.add("active");
+});
+
+artZoomOverlay.addEventListener("click", () => {
+    artZoomOverlay.classList.remove("active");
+});

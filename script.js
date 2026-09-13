@@ -157,6 +157,14 @@ const ASSETS_TO_PRELOAD = [
     "img/art/novu_art (117).png",
     "img/art/novu_art (118).png",
     "img/art/novu_art (119).png",
+    "img/art/novu_art (120).png",
+    "img/art/novu_art (121).png",
+    "img/art/novu_art (122).png",
+    "img/art/novu_art (123).png",
+    "img/art/novu_art (124).png",
+    "img/art/novu_art (125).png",
+    "img/art/novu_art (126).png",
+    "img/art/novu_art (127).png",
     "img/comms/comms (1).png",
     "img/comms/comms (2).png",
     "img/comms/comms (3).png",
@@ -1514,19 +1522,19 @@ $(function () {
                         if (artGallery == true) {
                             if (commissions == false) {
                                 if (key == "ARROWLEFT" || key == "A") {
-                                    if (id_art <= 113 && id_art > 1) {
+                                    if (id_art <= 127 && id_art > 1) {
                                         id_art--;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     } else {
-                                        id_art = 113;
+                                        id_art = 127;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     }
                                 } else if (key == "ARROWRIGHT" || key == "D") {
-                                    if (id_art >= 1 && id_art < 113) {
+                                    if (id_art >= 1 && id_art < 127) {
                                         id_art++;
                                         console.log(`artDisplayed: ${id_art}`)
 
@@ -1652,7 +1660,9 @@ $(function () {
     });
 });
 
+var isThisDogCheckForAnEasterEgg = false;
 function easterEgg(easter_id) {
+    isThisDogCheckForAnEasterEgg = true;
     if (dogcheck() == true) {
         switch (easter_id) {
             case 1:
@@ -1703,6 +1713,8 @@ function easterEgg(easter_id) {
                 location.href = `htmls/unknown/unknown.html?lang=${lang_id}`;
                 break;
         }
+
+        isThisDogCheckForAnEasterEgg = false;
     }
 }
 
@@ -1853,6 +1865,11 @@ function triggerShopMenu() {
         talk_menu.style.display = "none";
         optionsTalking.style.display = "none"
         textTyping(textbox, conversations[0][lang[lang_id]][1], "text")
+    } else {
+        if (inConversation == false) {
+            skipTyping();
+            triggerShopMenu();
+        }
     }
 }
 
@@ -1945,6 +1962,11 @@ function dogcheck() {
                     }
                 }
             }
+        } else {
+            if (isThisDogCheckForAnEasterEgg == false) {
+                skipTyping();
+                $(document).trigger($.Event("keydown", { key: " " }))
+            }
         }
     }
 
@@ -1973,6 +1995,11 @@ function talkConversation(convo, dialogue) {
         }
         changeDialogueBox("talk")
         textTyping(textbox_b, conversations[id_convo][lang[lang_id]][id_dialogue], "talk")
+    } else {
+        if (inConversation == false) {
+            skipTyping();
+            $(document).trigger($.Event("keydown", { key: " " }))
+        }
     }
 }
 
@@ -2014,17 +2041,18 @@ function skipTyping() {
 }
 
 function dialogueBoxClicked() {
-    if (inConversation == true) {
-        if (talking == true) {
-            $(document).trigger($.Event("keydown", { key: "X" }))
-        } else {
-            $(document).trigger($.Event("keydown", { key: " " }));
+    if (talking == true) {
+        $(document).trigger($.Event("keydown", { key: "X" }))
+    } else {
+        if (inConversation == true) {
+            $(document).trigger($.Event("keydown", { key: " " }))
         }
     }
 }
 
 dialoguetext_b.addEventListener("click", dialogueBoxClicked);
 normalDialogue.addEventListener("click", dialogueBoxClicked);
+talk_menu.addEventListener("click", skipTyping);
 
 function art_right() {
     $(document).trigger($.Event("keydown", { key: "D" }))
@@ -2036,12 +2064,6 @@ function art_left() {
 
 function openArt() {
     if (artGalleryFirstTime == false) {
-        if (lang_id == 1) {
-            location.reload();
-            location.href = `htmls/artgallery/artgallery_eng.html`;
-        } else if (lang_id == 2) {
-            location.reload();
-            location.href = `htmls/artgallery/artgallery_es.html`;
-        }
+        location.href = `htmls/artgallery/artgallery.html?lang=${lang_id}`;
     }
 }

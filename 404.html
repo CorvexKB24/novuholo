@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>??????</title>
+
+    <meta property="og:title" content="NovuHolo">
+    <meta property="og:description" content="* Un muñequín Teru Teru ambulante ha aparecido">
+    <meta property="og:image" content="https://i.imgur.com/rZx3u8X.png">
+    <meta property="og:url" content="http://novuholo.es">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="img/novu_icon.png">
+</head>
+
+<!-- NO ABRAS ESTE CÓDIGO PARA BUSCAR LOS SECRETOS, NO SEAS TRAMPOSO QUE LE QUITA LA GRACIA -->
+<!-- porfi :( -->
+
+<body>
+    <div id="e404">
+        <h1>404</h1>
+
+        <p>La página web a la que estás intentando acceder no existe.</p>
+        <p>Asegúrate de haber escrito bien el enlace.</p>
+
+        <br>
+
+        <img src="img/404/404_1.png">
+
+        <p>&gt;&gt; <a href="https://novuholo.es" class="clickable">https://novuholo.es</a> &lt;&lt;</p>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const random = Math.floor(Math.random() * 3) + 1;
+        const img = document.querySelector('#e404 img');
+        img.src = `img/404/404_${random}.png`;
+    });
+</script>
+
+</html>
