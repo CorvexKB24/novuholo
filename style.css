@@ -733,4 +733,18 @@ span {
     img {
         height: 300px;
     }
+
+    .es {
+        color: gray;
+        font-size: 15px;
+    }
+
+    .en {
+        color: white;
+        font-size: 20px;
+    }
+
+    p {
+        margin: 0;
+    }
 }
