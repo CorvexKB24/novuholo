@@ -507,14 +507,14 @@ const conversations = {
     1: {
         en: {
             1: "I am Novu, a digital artist, voice actor and  many other things.",
-            2: "If you're here, maybe you want to check the other options to see my work.",
+            2: "If you're here, maybe you want to check the other THINGS to see my work.",
             3: ". . .",
             4: "yes I like deltarune"
         },
 
         es: {
             1: "Soy Novu, artista digital, hago doblaje y también otras tantas cosas.",
-            2: "Ya que estás aquí, quizá podrías mirar un poco el resto de opciones.",
+            2: "Ya que estás aquí, quizá podrías mirar un poco el resto de COSAS.",
             3: ". . .",
             4: "sí vale me gusta DELTARUNE ya lo he dicho"
         }
