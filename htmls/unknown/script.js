@@ -336,6 +336,8 @@ function textTyping(textbox, dialogueLine, soundNeeded, i = 0, onComplete = null
 var selected = 1;
 var nums = [0, 0, 0, 0];
 var introducedcode = "";
+
+// NO HAGAS TRAMPA :((
 const correctCode = "5267";
 const dessCode = "1225";
 const novexCode = "2912";
@@ -348,6 +350,7 @@ const favCode = "9999";
 const dumbCode = "1234";
 const koroCode = "1303";
 const importantCode = "2202";
+// Si has leído los códigos: debería darte vergüenza
 
 $(function () {
     $(document).click(function () {
