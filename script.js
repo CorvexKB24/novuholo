@@ -165,6 +165,8 @@ const ASSETS_TO_PRELOAD = [
     "img/art/novu_art (125).png",
     "img/art/novu_art (126).png",
     "img/art/novu_art (127).png",
+    "img/art/novu_art (128).png",
+    "img/art/novu_art (129).png",
     "img/comms/comms (1).png",
     "img/comms/comms (2).png",
     "img/comms/comms (3).png",
@@ -560,7 +562,7 @@ const conversations = {
             4: "If you need to look for more examples, maybe I can show you MY ART.",
             5: ". . .",
             6: "Well, go on, you can look and then don't buy anything!",
-            7: "Then you'll leave meanwhile we're looking each other unconfortably. . .",
+            7: "Then you'll leave meanwhile we're looking each other uncomfortably. . .",
             8: "Don't worry. We all had been in your situation. No pressure.",
             9: "Anyways, if you want to buy something, you better talk me on other places.",
             10: "I heard that Discord may be cool.",
@@ -1522,19 +1524,19 @@ $(function () {
                         if (artGallery == true) {
                             if (commissions == false) {
                                 if (key == "ARROWLEFT" || key == "A") {
-                                    if (id_art <= 127 && id_art > 1) {
+                                    if (id_art <= 129 && id_art > 1) {
                                         id_art--;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     } else {
-                                        id_art = 127;
+                                        id_art = 129;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     }
                                 } else if (key == "ARROWRIGHT" || key == "D") {
-                                    if (id_art >= 1 && id_art < 127) {
+                                    if (id_art >= 1 && id_art < 129) {
                                         id_art++;
                                         console.log(`artDisplayed: ${id_art}`)
 
