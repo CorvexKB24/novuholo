@@ -479,13 +479,13 @@ const info_texts = {
     2: {
         en: {
             1: "This website was built by",
-            2: "(HTML, CSS, JavaScript and Jquery)",
+            2: "(HTML, CSS and JavaScript)",
             3: "Art made by",
             4: "Music made by"
         },
         es: {
             1: "Esta web ha sido programada por:",
-            2: "(HTML, CSS, JavaScript y Jquery)",
+            2: "(HTML, CSS y JavaScript)",
             3: "Arte realizado por",
             4: "Música realizada por"
         }
@@ -560,7 +560,7 @@ const conversations = {
             4: "If you need to look for more examples, maybe I can show you MY ART.",
             5: ". . .",
             6: "Well, go on, you can look and then don't buy anything!",
-            7: "Then leave meanwhile we're looking each other unconfortably. . .",
+            7: "Then you'll leave meanwhile we're looking each other unconfortably. . .",
             8: "Don't worry. We all had been in your situation. No pressure.",
             9: "Anyways, if you want to buy something, you better talk me on other places.",
             10: "I heard that Discord may be cool.",
@@ -748,16 +748,16 @@ const conversations = {
     11: {
         en: {
             1: "That plushie? Idk, but he looks very, very, dumb. . .",
-            2: "OK, that's actually my boyfriend. He's the one who built this website for me.",
+            2: "OK, that's actually my partner. He's the one who built this website for me.",
             3: "Kinda funny if you think that he had to write that line calling himself dumb.",
-            4: "Btw, he told me to say that the website was made with HTML, CSS, JavaScript and JQuery."
+            4: "Btw, he told me to say that the website was made with HTML, CSS and JavaScript."
         },
 
         es: {
             1: "¿El peluche ese? Ni idea, pero parece que es mu tonto. . .",
-            2: "VALE, en realidad es mi novio. Es quien ha programado esta página web para mí.",
+            2: "VALE, en realidad es mi pareja. Es quien ha programado esta página web para mí.",
             3: "Es gracioso teniendo en cuenta que ha tenido que escribir esa frase llamándose tonto.",
-            4: "Por cierto, me ha dicho que diga que la web está hecha con HTML, CSS, JQuery y JavaScript."
+            4: "Por cierto, me ha dicho que diga que la web está hecha con HTML, CSS y JavaScript."
         }
     },
 
