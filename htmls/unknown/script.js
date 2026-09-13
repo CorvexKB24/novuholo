@@ -456,7 +456,7 @@ $(function () {
                         id_convo = 6;
                         id_dialogue = 1;
                         scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
-                    } else if (introducedcode == funnyCode) {
+                    } else if (introducedcode == funnyCode || introducedcode == 6969) {
                         id_convo = 7;
                         id_dialogue = 1;
                         scene.style.backgroundImage = `url('img/${introducedcode}.png')`;
