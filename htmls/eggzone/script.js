@@ -174,7 +174,7 @@ const dialogues = {
             6: "I don't know how I got here, but keep it up, leader!",
             7: "Let's fill up the island!",
             8: "Didn't I just tell you to try on the right?!",
-            9: "On the right left! L-E-F-T!",
+            9: "On the left! L-E-F-T!",
             10: "Don't listen to the other guy! R-I-G-H-T!"
         },
 
