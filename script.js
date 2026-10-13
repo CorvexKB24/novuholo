@@ -169,6 +169,7 @@ const ASSETS_TO_PRELOAD = [
     "img/art/novu_art (129).png",
     "img/art/novu_art (130).png",
     "img/art/novu_art (131).png",
+    "img/art/novu_art (132).png",
     "img/comms/comms (1).png",
     "img/comms/comms (2).png",
     "img/comms/comms (3).png",
@@ -1526,19 +1527,19 @@ $(function () {
                         if (artGallery == true) {
                             if (commissions == false) {
                                 if (key == "ARROWLEFT" || key == "A") {
-                                    if (id_art <= 131 && id_art > 1) {
+                                    if (id_art <= 132 && id_art > 1) {
                                         id_art--;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     } else {
-                                        id_art = 131;
+                                        id_art = 132;
                                         console.log(`artDisplayed: ${id_art}`)
 
                                         changeArtSrc(`img/art/novu_art (${id_art}).png`);
                                     }
                                 } else if (key == "ARROWRIGHT" || key == "D") {
-                                    if (id_art >= 1 && id_art < 131) {
+                                    if (id_art >= 1 && id_art < 132) {
                                         id_art++;
                                         console.log(`artDisplayed: ${id_art}`)
 
